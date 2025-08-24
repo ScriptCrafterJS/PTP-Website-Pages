@@ -1,0 +1,885 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+  body {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f0f8f8 100%) !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+  }
+
+  .parallax-background {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .floating-element {
+    position: absolute !important;
+    border-radius: 50% !important;
+    opacity: 0.1 !important;
+    animation: float 20s infinite linear !important;
+  }
+
+  .floating-element:nth-child(1) {
+    width: 80px !important;
+    height: 80px !important;
+    background: #419496 !important;
+    top: 10% !important;
+    left: 10% !important;
+    animation-delay: 0s !important;
+    animation-duration: 25s !important;
+  }
+
+  .floating-element:nth-child(2) {
+    width: 120px !important;
+    height: 120px !important;
+    background: #283b3c !important;
+    top: 20% !important;
+    right: 15% !important;
+    animation-delay: -5s !important;
+    animation-duration: 30s !important;
+  }
+
+  .floating-element:nth-child(3) {
+    width: 60px !important;
+    height: 60px !important;
+    background: #419496 !important;
+    top: 60% !important;
+    left: 20% !important;
+    animation-delay: -10s !important;
+    animation-duration: 35s !important;
+  }
+
+  .floating-element:nth-child(4) {
+    width: 100px !important;
+    height: 100px !important;
+    background: #283b3c !important;
+    top: 70% !important;
+    right: 25% !important;
+    animation-delay: -15s !important;
+    animation-duration: 40s !important;
+  }
+
+  .floating-element:nth-child(5) {
+    width: 40px !important;
+    height: 40px !important;
+    background: #419496 !important;
+    top: 40% !important;
+    left: 70% !important;
+    animation-delay: -20s !important;
+    animation-duration: 28s !important;
+  }
+
+  .floating-element:nth-child(6) {
+    width: 90px !important;
+    height: 90px !important;
+    background: #283b3c !important;
+    top: 80% !important;
+    left: 60% !important;
+    animation-delay: -25s !important;
+    animation-duration: 32s !important;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px) rotate(0deg) scale(1) !important;
+      opacity: 0.1 !important;
+    }
+    25% {
+      transform: translateY(-30px) rotate(90deg) scale(1.1) !important;
+      opacity: 0.15 !important;
+    }
+    50% {
+      transform: translateY(-60px) rotate(180deg) scale(1) !important;
+      opacity: 0.1 !important;
+    }
+    75% {
+      transform: translateY(-30px) rotate(270deg) scale(0.9) !important;
+      opacity: 0.08 !important;
+    }
+    100% {
+      transform: translateY(0px) rotate(360deg) scale(1) !important;
+      opacity: 0.1 !important;
+    }
+  }
+
+  .geometric-shapes {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .shape {
+    position: absolute !important;
+    opacity: 0.03 !important;
+  }
+
+  .shape-1 {
+    width: 200px !important;
+    height: 200px !important;
+    border: 2px solid #419496 !important;
+    border-radius: 50% !important;
+    top: 15% !important;
+    left: 80% !important;
+    animation: rotateClockwise 60s linear infinite !important;
+  }
+
+  .shape-2 {
+    width: 150px !important;
+    height: 150px !important;
+    background: linear-gradient(45deg, #419496, #283b3c) !important;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%) !important;
+    top: 50% !important;
+    left: 5% !important;
+    animation: rotateCounterClockwise 45s linear infinite !important;
+  }
+
+  .shape-3 {
+    width: 120px !important;
+    height: 120px !important;
+    border: 3px solid #283b3c !important;
+    transform: rotate(45deg) !important;
+    top: 75% !important;
+    right: 10% !important;
+    animation: pulse 8s ease-in-out infinite !important;
+  }
+
+  @keyframes rotateClockwise {
+    from { transform: rotate(0deg) !important; }
+    to { transform: rotate(360deg) !important; }
+  }
+
+  @keyframes rotateCounterClockwise {
+    from { transform: rotate(0deg) !important; }
+    to { transform: rotate(-360deg) !important; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: rotate(45deg) scale(1) !important; opacity: 0.03 !important; }
+    50% { transform: rotate(45deg) scale(1.2) !important; opacity: 0.08 !important; }
+  }
+
+  .entrepreneurship-container {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    color: #333 !important;
+    line-height: 1.7 !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    animation: fadeIn 1s ease-in-out !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  .entrepreneurship-header {
+    position: relative !important;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%) !important;
+    color: #333 !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    margin-bottom: 40px !important;
+    overflow: hidden !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1) !important;
+    border: 2px solid #f0f0f0 !important;
+  }
+
+  .entrepreneurship-header::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50% !important;
+    right: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: 
+      radial-gradient(circle at 30% 70%, rgba(65,148,150,0.05) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, rgba(40,59,60,0.05) 0%, transparent 50%) !important;
+    animation: complexRotate 25s linear infinite !important;
+  }
+
+  @keyframes complexRotate {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(1); }
+    75% { transform: rotate(270deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+  }
+
+  .entrepreneurship-intro {
+    position: relative !important;
+    z-index: 2 !important;
+    font-size: 1.1rem !important;
+    text-align: justify !important;
+    line-height: 1.8 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .entrepreneurship-intro a {
+    color: #419496 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .entrepreneurship-intro a:hover {
+    color: #283b3c !important;
+    border-bottom-color: #283b3c !important;
+  }
+
+  .entrepreneurship-programs {
+    margin: 50px 0 !important;
+  }
+
+  .entrepreneurship-programs-title {
+    text-align: center !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    margin-bottom: 50px !important;
+    position: relative !important;
+    display: inline-block !important;
+    width: 100% !important;
+  }
+
+  .entrepreneurship-programs-title::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #419496, #283b3c) !important;
+    border-radius: 2px !important;
+  }
+
+  .programs-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 30px !important;
+    margin: 40px 0 !important;
+  }
+
+  .program-card {
+    background: white !important;
+    border-radius: 20px !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border: 2px solid transparent !important;
+  }
+
+  .program-card::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 5px !important;
+    background: linear-gradient(90deg, #419496, #283b3c) !important;
+    transform: scaleX(0) !important;
+    transform-origin: left !important;
+    transition: transform 0.4s ease !important;
+  }
+
+  .program-card:hover {
+    transform: translateY(-15px) scale(1.05) !important;
+    box-shadow: 0 20px 50px rgba(65, 148, 150, 0.2) !important;
+    border-color: #419496 !important;
+  }
+
+  .program-card:hover::before {
+    transform: scaleX(1) !important;
+  }
+
+  .program-card img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: contain !important;
+    margin-bottom: 20px !important;
+    transition: all 0.4s ease !important;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1)) !important;
+  }
+
+  .program-card:hover img {
+    transform: scale(1.1) rotateY(10deg) !important;
+    filter: drop-shadow(0 10px 25px rgba(65, 148, 150, 0.2)) !important;
+  }
+
+  .program-card a {
+    color: #333 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .program-card:hover a {
+    color: #419496 !important;
+  }
+
+  .entrepreneurship-section {
+    background: white !important;
+    border-radius: 15px !important;
+    padding: 40px !important;
+    margin: 30px 0 !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.4s ease !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .entrepreneurship-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #419496, #283b3c) !important;
+    transition: left 0.5s ease !important;
+  }
+
+  .entrepreneurship-section:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .entrepreneurship-section:hover::before {
+    left: 0 !important;
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+    color: #419496 !important;
+    font-weight: 600 !important;
+    margin-bottom: 25px !important;
+    position: relative !important;
+    display: inline-block !important;
+  }
+
+  .section-title::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -5px !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 3px !important;
+    background: #283b3c !important;
+    transition: width 0.3s ease !important;
+  }
+
+  .entrepreneurship-section:hover .section-title::after {
+    width: 100% !important;
+  }
+
+  .entrepreneurship-text {
+    font-size: 1rem !important;
+    color: #555 !important;
+    line-height: 1.8 !important;
+    text-align: justify !important;
+    margin-bottom: 20px !important;
+  }
+
+  .features-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 30px 0 !important;
+  }
+
+  .features-list li {
+    background: #f8f9ff !important;
+    margin: 20px 0 !important;
+    padding: 25px !important;
+    border-radius: 12px !important;
+    border-left: 5px solid #419496 !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .features-list li::before {
+    content: "" !important;
+    position: absolute !important;
+    left: -50px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: #419496 !important;
+    color: white !important;
+    width: 35px !important;
+    height: 35px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold !important;
+    transition: left 0.4s ease !important;
+    z-index: 2 !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .features-list li[data-icon="research"]::before { content: "R" !important; }
+  .features-list li[data-icon="network"]::before { content: "N" !important; }
+  .features-list li[data-icon="rocket"]::before { content: "A" !important; }
+  .features-list li[data-icon="funding"]::before { content: "F" !important; }
+  .features-list li[data-icon="legal"]::before { content: "S" !important; }
+  .features-list li[data-icon="global"]::before { content: "G" !important; }
+  .features-list li[data-icon="policy"]::before { content: "P" !important; }
+
+  .features-list li:hover {
+    transform: translateX(20px) !important;
+    background: #f0f8f8 !important;
+    box-shadow: 0 10px 25px rgba(65, 148, 150, 0.15) !important;
+    border-left-color: #283b3c !important;
+    padding-left: 60px !important;
+  }
+
+  .features-list li:hover::before {
+    left: 15px !important;
+    background: #283b3c !important;
+  }
+
+  .features-list li strong {
+    color: #419496 !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+  }
+
+  .particle {
+    position: absolute !important;
+    width: 4px !important;
+    height: 4px !important;
+    background: #419496 !important;
+    border-radius: 50% !important;
+    pointer-events: none !important;
+    opacity: 0 !important;
+    animation: particleFloat 3s ease-out forwards !important;
+  }
+
+  @keyframes particleFloat {
+    0% {
+      opacity: 0.8 !important;
+      transform: translateY(0) scale(0) !important;
+    }
+    50% {
+      opacity: 0.4 !important;
+      transform: translateY(-100px) scale(1) !important;
+    }
+    100% {
+      opacity: 0 !important;
+      transform: translateY(-200px) scale(0) !important;
+    }
+  }
+
+  .scroll-indicator {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 6px !important;
+    height: 100vh !important;
+    background: rgba(65, 148, 150, 0.2) !important;
+    z-index: 1000 !important;
+  }
+
+  .scroll-progress {
+    width: 100% !important;
+    background: linear-gradient(180deg, #419496, #283b3c) !important;
+    height: 0% !important;
+    transition: height 0.1s ease-out !important;
+    box-shadow: 2px 0 10px rgba(65, 148, 150, 0.5) !important;
+    border-radius: 0 3px 3px 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .entrepreneurship-container {
+      padding: 15px !important;
+    }
+    
+    .entrepreneurship-header {
+      padding: 30px 20px !important;
+    }
+    
+    .entrepreneurship-programs-title {
+      font-size: 2rem !important;
+    }
+    
+    .programs-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+    
+    .program-card {
+      padding: 25px 15px !important;
+    }
+    
+    .entrepreneurship-section {
+      padding: 25px 20px !important;
+    }
+    
+    .floating-element {
+      opacity: 0.05 !important;
+    }
+    
+    .shape {
+      opacity: 0.02 !important;
+    }
+  }
+</style>
+
+<div class="scroll-indicator">
+  <div class="scroll-progress"></div>
+</div>
+
+<div class="parallax-background">
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  <div class="floating-element"></div>
+  
+  <div class="geometric-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+</div>
+
+<div class="entrepreneurship-container">
+  <div class="entrepreneurship-header">
+    <p class="entrepreneurship-intro">
+      Entrepreneurship plays a crucial role in building the digital economy in Palestine by fostering innovation, creating job opportunities, attracting investments, and enhancing economic resilience. Technopark serves as a catalyst for building a robust entrepreneurship ecosystem by providing essential infrastructure, fostering collaboration, promoting innovation, and facilitating access to resources and support services. All these entrepreneurial programs are done under <a href="https://www.technopark.ps/en/Article/719/The-Hive-Innovation-Hub-A-New-Era-of-Entrepreneurial-Growth"><strong>The Hive Innovation Hub</strong></a>, which plays a key role in nurturing the next generation of entrepreneurs and driving forward Palestine's digital transformation.
+    </p>
+  </div>
+
+  <div class="entrepreneurship-programs">
+    <h2 class="entrepreneurship-programs-title">Our Innovation Programs</h2>
+    
+    <div class="programs-grid">
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/65/ideation">
+          <img alt="The Hive Idea Lab" src="/public/files/projects/Ideation.png" />
+          <div>The Hive Idea Lab</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/64/incubation">
+          <img alt="The Hive Incubator" src="/public/files/projects/Incubation.png" />
+          <div>The Hive Incubator</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/66/acceleration">
+          <img alt="The Hive Accelerator" src="/public/files/projects/Acceleration.png" />
+          <div>The Hive Accelerator</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="https://www.technopark.ps/en/Category/128/park-life">
+          <img alt="Community" src="/public/files/projects/community.png" />
+          <div>Community</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/77/meet-our-startups">
+          <img alt="Our Startups" src="/public/files/projects/startups.png" />
+          <div>Our Startups</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/88/meet-our-coaches">
+          <img alt="Our Coaches" src="/public/files/projects/coaches.png" />
+          <div>Our Coaches</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/66/acceleration">
+          <img alt="The Hive Accelerator" src="/public/files/projects/Acceleration.png" />
+          <div>The Hive Accelerator</div>
+        </a>
+      </div>
+
+      <div class="program-card">
+        <a href="http://www.technopark.ps/en/Category/90/ecosystem-development">
+          <img alt="Ecosystem Development" src="/public/files/projects/Ecosystems.png" />
+          <div>Ecosystem Development</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="entrepreneurship-section">
+    <h3 class="section-title">Infrastructure Development</h3>
+    <p class="entrepreneurship-text">PTP offers state-of-the-art infrastructure, including office spaces, laboratories, coworking spaces, and advanced technology facilities. By providing entrepreneurs with access to modern infrastructure, Technoparks lower entry barriers and enable startups to focus on innovation and growth without the burden of high capital expenditures.</p>
+
+<ol>
+    <ul class="features-list">
+      <li data-icon="research">
+        <strong>Access to Research and Development Facilities:</strong> PTP is located in close proximity to Birzeit University and partners with all Palestinian Universities, research Hubs, and technology hubs. This proximity facilitates collaboration between academia and industry, allowing entrepreneurs to access cutting-edge research, technology transfer opportunities, and specialized expertise to develop innovative products and services.
+      </li>
+      
+      <li data-icon="network">
+        <strong>Networking and Collaboration Opportunities:</strong> PTP serves as vibrant hub for networking and collaboration among entrepreneurs, researchers, investors, and industry professionals. By organizing events, workshops, seminars, and networking sessions, Technoparks foster a culture of collaboration, knowledge sharing, and community building, creating synergies that drive entrepreneurship forward.
+      </li>
+      
+      <li data-icon="rocket">
+        <strong>Incubation and Acceleration Programs:</strong> PTP hosts an incubator and accelerator that provide tailored support, mentorship, and resources to early-stage startups. These programs offer guidance on business development, market validation, funding strategies, and scalability, helping entrepreneurs navigate the challenges of startup growth and increase their chances of success.
+      </li>
+      
+      <li data-icon="funding">
+        <strong>Access to Funding and Investment Opportunities:</strong> PTP connects entrepreneurs with venture capitalists, angel investors, government grants, and other funding sources to fuel startup growth. By facilitating access to capital and investment networks, Technopark enables entrepreneurs to secure the financial resources they need to scale their ventures and bring innovative ideas to market.
+      </li>
+      
+      <li data-icon="legal">
+        <strong>Business Support Services:</strong> PTP offers a range of business support services, including legal advice, financial planning, marketing assistance, and intellectual property protection. By providing access to these essential services, Technopark helps entrepreneurs address operational challenges, comply with regulatory requirements, and mitigate risks, enabling them to focus on their core business activities.
+      </li>
+      
+      <li data-icon="global">
+        <strong>Internationalization and Market Expansion:</strong> PTP supports startups in expanding their market reach beyond national borders. Through internationalization programs, market research, trade missions, and partnerships with foreign entities, PTP helps entrepreneurs explore new markets, establish strategic alliances, and access global opportunities for growth and expansion.
+      </li>
+      
+      <li data-icon="policy">
+        <strong>Policy Advocacy and Ecosystem Development:</strong> PTP plays a vital role in advocating for policies and initiatives that support entrepreneurship, innovation, and economic development. By engaging with government stakeholders, industry associations, and other ecosystem players, PTP contributes to the creation of a supportive policy environment that encourages entrepreneurship and fosters ecosystem growth.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+$(document).ready(function() {
+    // Professional scroll-triggered animations
+    function animateOnScroll() {
+        $('.entrepreneurship-section, .program-card').each(function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+            
+            if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                $(this).addClass('animate-in');
+            }
+        });
+    }
+    
+    // Add professional scroll animation CSS
+    $('<style>')
+        .prop('type', 'text/css')
+        .html(`
+            .entrepreneurship-section, .program-card {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .entrepreneurship-section.animate-in, .program-card.animate-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        `)
+        .appendTo('head');
+    
+    // Initialize animations
+    animateOnScroll();
+    $(window).scroll(animateOnScroll);
+    
+    // Staggered animation for program cards
+    $('.program-card').each(function(index) {
+        $(this).css('animation-delay', (index * 0.1) + 's');
+    });
+    
+    // Staggered animation for feature list items
+    $('.features-list li').each(function(index) {
+        $(this).css({
+            'opacity': '0',
+            'transform': 'translateX(-50px)'
+        });
+        
+        $(this).delay(index * 100).animate({
+            opacity: 1
+        }, 600);
+        
+        setTimeout(() => {
+            $(this).css({
+                'transform': 'translateX(0)',
+                'transition': 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+            });
+        }, index * 100);
+    });
+    
+    // Enhanced hover effects for program cards
+    $('.program-card').hover(
+        function() {
+            $(this).siblings().css({
+                'opacity': '0.7',
+                'transform': 'scale(0.95)',
+                'transition': 'all 0.4s ease'
+            });
+        },
+        function() {
+            $(this).siblings().css({
+                'opacity': '1',
+                'transform': 'scale(1)',
+                'transition': 'all 0.4s ease'
+            });
+        }
+    );
+    
+    // Professional parallax effects
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var documentHeight = $(document).height();
+        var scrollPercent = scroll / (documentHeight - windowHeight);
+        
+        // Parallax for floating elements
+        $('.floating-element').each(function(index) {
+            var speed = (index + 1) * 0.5;
+            var yOffset = scroll * speed;
+            var rotation = scroll * (0.1 + index * 0.05);
+            
+            $(this).css({
+                'transform': `translateY(${yOffset}px) rotate(${rotation}deg)`,
+                'opacity': 0.1 + Math.sin(scroll * 0.01) * 0.05
+            });
+        });
+        
+        // Parallax for geometric shapes
+        $('.shape-1').css({
+            'transform': `translateY(${scroll * 0.3}px) rotate(${scroll * 0.1}deg)`,
+            'opacity': 0.03 + Math.cos(scroll * 0.005) * 0.02
+        });
+        
+        $('.shape-2').css({
+            'transform': `translateY(${scroll * -0.2}px) rotate(${-scroll * 0.15}deg)`,
+            'opacity': 0.03 + Math.sin(scroll * 0.008) * 0.02
+        });
+        
+        $('.shape-3').css({
+            'transform': `translateY(${scroll * 0.4}px) rotate(${45 + scroll * 0.2}deg) scale(${1 + Math.sin(scroll * 0.01) * 0.1})`,
+            'opacity': 0.03 + Math.cos(scroll * 0.007) * 0.03
+        });
+        
+        // Dynamic background gradient based on scroll
+        var hue1 = 180 + scrollPercent * 20; // Slight color shift
+        var hue2 = 200 + scrollPercent * 15;
+        
+        $('body').css({
+            'background': `linear-gradient(135deg, hsl(${hue1}, 20%, 97%) 0%, #ffffff 50%, hsl(${hue2}, 30%, 95%) 100%)`
+        });
+        
+        // Parallax for header with smooth easing
+        $('.entrepreneurship-header').css({
+            'transform': `translateY(${scroll * 0.05}px) scale(${1 - scroll * 0.0001})`,
+            'transition': 'transform 0.1s ease-out'
+        });
+        
+        // Parallax for sections with staggered movement
+        $('.entrepreneurship-section').each(function(index) {
+            var sectionTop = $(this).offset().top;
+            var sectionScroll = scroll - sectionTop + windowHeight;
+            var parallaxSpeed = 0.02 + (index * 0.01);
+            
+            if (sectionScroll > 0 && sectionScroll < windowHeight * 2) {
+                $(this).css({
+                    'transform': `translateY(${sectionScroll * parallaxSpeed}px)`,
+                    'opacity': Math.max(0.7, 1 - (sectionScroll / (windowHeight * 1.5)))
+                });
+            }
+        });
+        
+        // Update scroll progress indicator (vertical on left side)
+        var scrollProgress = (scroll / (documentHeight - windowHeight)) * 100;
+        $('.scroll-progress').css('height', scrollProgress + '%');
+        
+        // Generate particles on scroll
+        if (scroll > 0) {
+            createScrollParticles();
+        }
+    });
+    
+    // Create floating particles during scroll
+    function createScrollParticles() {
+        if (Math.random() > 0.85) { // 15% chance per scroll event
+            var particle = $('<div class="particle"></div>');
+            var startX = Math.random() * $(window).width();
+            var startY = $(window).height() - 50;
+            
+            particle.css({
+                left: startX + 'px',
+                top: startY + 'px'
+            });
+            
+            $('body').append(particle);
+            
+            setTimeout(function() {
+                particle.remove();
+            }, 3000);
+        }
+    }
+    
+    // Smooth anchor link scrolling
+    $('a[href^="#"]').click(function(e) {
+        e.preventDefault();
+        var target = $($(this).attr('href'));
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: target.offset().top - 80
+            }, 1000, 'easeInOutCubic');
+        }
+    });
+    
+    // Professional loading state for images
+    $('.program-card img').each(function() {
+        $(this).on('load', function() {
+            $(this).css({
+                'opacity': '0',
+                'transform': 'scale(0.8)'
+            }).animate({
+                opacity: 1
+            }, 800);
+            $(this).css({
+                'transform': 'scale(1)',
+                'transition': 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+            });
+        });
+    });
+    
+    // Add a subtle typing effect to the main title
+    setTimeout(function() {
+        $('.entrepreneurship-programs-title').each(function() {
+            var $this = $(this);
+            var text = $this.text();
+            $this.text('');
+            
+            var i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    $this.text($this.text() + text.charAt(i));
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            typeWriter();
+        });
+    }, 500);
+});
+</script>
