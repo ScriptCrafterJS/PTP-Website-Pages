@@ -1,284 +1,677 @@
 <link
   rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap"
+  href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap"
 />
 <style>
+  * {
+    box-sizing: border-box !important;
+  }
+
   body {
-    font-family: "Montserrat", Arial, sans-serif !important;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e6f0f7 100%) !important;
-    color: #263238 !important;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system,
+      BlinkMacSystemFont, sans-serif !important;
+    line-height: 1.6 !important;
+    color: #1a1a1a !important;
+    background: #ffffff !important;
     margin: 0 !important;
     padding: 0 !important;
-  }
-  .main-building-hero {
-    background: linear-gradient(120deg, #419496 0%, #283b3c 100%) !important;
-    color: #fff !important;
-    padding: 60px 20px 40px 20px !important;
-    text-align: center !important;
-    border-radius: 0 0 40px 40px !important;
-    box-shadow: 0 8px 32px rgba(65, 148, 150, 0.12) !important;
-    margin-bottom: 40px !important;
     position: relative !important;
+    overflow-x: hidden !important;
+  }
+
+  .parallax-background {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    overflow: hidden !important;
+    pointer-events: none !important;
+  }
+
+  .geometric-shapes {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  .floating-elements {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    left: 0 !important;
     overflow: hidden !important;
   }
-  .main-building-hero h1 {
-    font-size: 2.8rem !important;
+
+  .floating-element {
+    position: absolute !important;
+    opacity: 0.25 !important;
+    pointer-events: none !important;
+  }
+
+  .floating-element-1 {
+    width: 220px !important;
+    height: 220px !important;
+    border: none !important;
+    border-radius: 50% !important;
+    background: linear-gradient(
+      135deg,
+      rgba(65, 148, 150, 0.25),
+      rgba(65, 148, 150, 0.35)
+    ) !important;
+    top: 8% !important;
+    left: 5% !important;
+    animation: float1 35s infinite linear !important;
+    backdrop-filter: blur(1px) !important;
+  }
+
+  .floating-element-2 {
+    width: 180px !important;
+    height: 180px !important;
+    border: none !important;
+    border-radius: 50% !important;
+    background: linear-gradient(
+      135deg,
+      rgba(65, 148, 150, 0.2),
+      rgba(65, 148, 150, 0.3)
+    ) !important;
+    top: 60% !important;
+    right: 8% !important;
+    animation: float2 40s infinite linear !important;
+    box-shadow: 0 4px 12px rgba(65, 148, 150, 0.2) !important;
+  }
+
+  .floating-element-3,
+  .floating-element-4,
+  .floating-element-5,
+  .floating-element-6 {
+    display: none !important;
+  }
+
+  @keyframes float1 {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(360deg);
+    }
+  }
+
+  @keyframes float2 {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(360deg);
+    }
+  }
+
+  .shape {
+    position: absolute !important;
+    opacity: 0.05 !important;
+  }
+
+  .shape-1 {
+    width: 200px !important;
+    height: 200px !important;
+    border: 2px solid #e9ecef !important;
+    border-radius: 50% !important;
+    top: 15% !important;
+    left: 80% !important;
+  }
+
+  .shape-2 {
+    width: 150px !important;
+    height: 150px !important;
+    background: #f8f9fa !important;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%) !important;
+    top: 50% !important;
+    left: 5% !important;
+  }
+
+  .shape-3 {
+    width: 120px !important;
+    height: 120px !important;
+    border: 3px solid #dee2e6 !important;
+    transform: rotate(45deg) !important;
+    top: 75% !important;
+    right: 10% !important;
+  }
+
+  /* Portal font override fix - Triple specificity targeting */
+  .main-building-container,
+  .container .main-building-container,
+  #all_body .main-building-container {
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system,
+      BlinkMacSystemFont, sans-serif !important;
+  }
+
+  .hero-title,
+  .container .hero-title,
+  #all_body .hero-title {
+    font-size: 36px !important;
     font-weight: 700 !important;
-    margin-bottom: 18px !important;
-    letter-spacing: 1px !important;
+    line-height: 1.2 !important;
   }
-  .main-building-hero p {
-    font-size: 1.2rem !important;
-    max-width: 700px !important;
+
+  .hero-subtitle,
+  .container .hero-subtitle,
+  #all_body .hero-subtitle {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    line-height: 1.6 !important;
+  }
+
+  .section-title,
+  .container .section-title,
+  #all_body .section-title {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    line-height: 1.3 !important;
+  }
+
+  .section-description,
+  .container .section-description,
+  #all_body .section-description {
+    font-size: 16px !important;
+    line-height: 1.7 !important;
+  }
+
+  .summary-title,
+  .container .summary-title,
+  #all_body .summary-title {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+  }
+
+  .summary-description,
+  .container .summary-description,
+  #all_body .summary-description {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* Divider styles */
+  .divider {
+    width: 100% !important;
+    height: 2px !important;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      #419496 50%,
+      transparent 100%
+    ) !important;
+    margin: 30px 0 !important;
+    border: none !important;
+  }
+
+  .main-building-container {
+    max-width: 1200px !important;
     margin: 0 auto !important;
-    opacity: 0.95 !important;
+    padding: 40px 20px !important;
   }
-  .main-building-section {
+
+  .hero-section {
+    text-align: center !important;
+  }
+
+  .hero-title {
+    font-size: 36px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 24px !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-subtitle {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #2c3e50 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    line-height: 1.6 !important;
+  }
+
+  .building-section {
+    position: relative !important;
     display: flex !important;
     align-items: flex-start !important;
-    gap: 32px !important;
-    background: #fff !important;
-    border-radius: 24px !important;
-    box-shadow: 0 4px 24px rgba(65, 148, 150, 0.08) !important;
-    margin: 32px auto !important;
-    max-width: 1000px !important;
-    padding: 36px 28px !important;
-    transition: box-shadow 0.3s !important;
-    position: relative !important;
-    flex-wrap: wrap !important;
+    gap: 60px !important;
+    margin-bottom: 80px !important;
+    padding-left: 120px !important;
   }
-  .main-building-section:hover {
-    box-shadow: 0 8px 40px rgba(65, 148, 150, 0.18) !important;
+
+  .building-section:last-child {
+    margin-bottom: 60px !important;
   }
-  .section-icon {
-    flex: 0 0 80px !important;
+
+  /* Timeline line */
+  .building-section::before {
+    content: "" !important;
+    position: absolute !important;
+    left: 60px !important;
+    top: 100px !important;
+    bottom: -100px !important;
+    width: 3px !important;
+    background: linear-gradient(
+      180deg,
+      #419496 0%,
+      #419496 50%,
+      transparent 100%
+    ) !important;
+    border-left: 3px dashed #419496 !important;
+    background: transparent !important;
+  }
+
+  .building-section:last-child::before {
+    display: none !important;
+  }
+
+  /* Floor number circle */
+  .floor-number {
+    position: absolute !important;
+    left: 20px !important;
+    top: 20px !important;
     width: 80px !important;
     height: 80px !important;
-    margin-right: 12px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border: 3px solid #419496 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: #f0f8f8 !important;
-    border-radius: 50% !important;
-    box-shadow: 0 2px 8px rgba(65, 148, 150, 0.08) !important;
-    font-size: 2.5rem !important;
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    color: #419496 !important;
+    z-index: 10 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+  }
+
+  .floor-number,
+  .container .floor-number,
+  #all_body .floor-number {
+    font-size: 32px !important;
+    line-height: 1 !important;
+  }
+
+  .building-section:hover .floor-number {
+    background: #419496 !important;
+    color: #ffffff !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 8px 24px rgba(65, 148, 150, 0.3) !important;
+  }
+
+  .section-content {
+    flex: 1 !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
     overflow: hidden !important;
   }
-  .section-content {
-    flex: 1 1 0% !important;
-    min-width: 220px !important;
+
+  .section-content::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(65, 148, 150, 0.15) 50%,
+      transparent 70%
+    ) !important;
+    transform: skewX(-25deg) !important;
+    transition: left 0.6s ease !important;
+    z-index: 1 !important;
   }
+
+  .section-content > * {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .building-section:hover .section-content::before {
+    left: 100% !important;
+  }
+
+  .building-section:hover .section-content {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+  }
+
   .section-title {
-    font-size: 1.3rem !important;
-    font-weight: 600 !important;
-    color: #419496 !important;
-    margin-bottom: 10px !important;
-    letter-spacing: 0.5px !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 20px !important;
+    line-height: 1.3 !important;
   }
-  .section-desc {
-    font-size: 1.05rem !important;
-    color: #37474f !important;
+
+  .section-description {
+    font-size: 16px !important;
     line-height: 1.7 !important;
+    color: #4a4a4a !important;
     text-align: justify !important;
   }
-  .main-building-video {
-    display: flex !important;
-    justify-content: center !important;
-    margin: 48px 0 24px 0 !important;
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .main-building-container {
+      padding: 20px 15px !important;
+    }
+
+    .hero-title,
+    .container .hero-title,
+    #all_body .hero-title {
+      font-size: 28px !important;
+    }
+
+    .hero-subtitle,
+    .container .hero-subtitle,
+    #all_body .hero-subtitle {
+      font-size: 16px !important;
+    }
+
+    .building-section {
+      padding-left: 80px !important;
+      gap: 30px !important;
+      margin-bottom: 60px !important;
+    }
+
+    .building-section::before {
+      left: 40px !important;
+    }
+
+    .floor-number {
+      left: 0px !important;
+      width: 60px !important;
+      height: 60px !important;
+      font-size: 24px !important;
+    }
+
+    .floor-number,
+    .container .floor-number,
+    #all_body .floor-number {
+      font-size: 24px !important;
+    }
+
+    .section-title,
+    .container .section-title,
+    #all_body .section-title {
+      font-size: 24px !important;
+    }
+
+    .section-description,
+    .container .section-description,
+    #all_body .section-description {
+      font-size: 15px !important;
+    }
+
+    .summary-section {
+      padding: 40px 20px !important;
+    }
+
+    .summary-title,
+    .container .summary-title,
+    #all_body .summary-title {
+      font-size: 26px !important;
+    }
+
+    .summary-description,
+    .container .summary-description,
+    #all_body .summary-description {
+      font-size: 16px !important;
+    }
   }
-  .main-building-video iframe {
+
+  /* Video section */
+  .video-section {
+    margin: 80px 0 !important;
+    text-align: center !important;
+  }
+
+  .video-container {
+    position: relative !important;
+    padding-bottom: 56.25% !important;
+    height: 0 !important;
+    overflow: hidden !important;
     width: 100% !important;
-    max-width: 700px !important;
-    aspect-ratio: 16/9 !important;
-    border-radius: 18px !important;
+    margin: 0 auto !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .video-container iframe {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     border: none !important;
-    box-shadow: 0 4px 24px rgba(65, 148, 150, 0.1) !important;
+    border-radius: 16px !important;
   }
-  @media (max-width: 900px) {
-    .main-building-section {
-      flex-direction: column !important;
-      align-items: stretch !important;
-      padding: 28px 12px !important;
-    }
-    .section-icon {
-      margin: 0 auto 18px auto !important;
-    }
+
+  /* Summary section with gradient background */
+  .summary-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e6f7f8 100%) !important;
+    padding: 60px 40px !important;
+    border-radius: 24px !important;
+    text-align: center !important;
+    margin: 80px 0 !important;
+    box-shadow: 0 4px 24px rgba(65, 148, 150, 0.08) !important;
   }
-  @media (max-width: 600px) {
-    .main-building-hero {
-      padding: 36px 8px 24px 8px !important;
-      border-radius: 0 0 18px 18px !important;
-    }
-    .main-building-section {
-      margin: 18px 4px !important;
-      padding: 18px 6px !important;
-    }
-    .main-building-video {
-      margin: 24px 0 12px 0 !important;
-    }
+
+  .summary-title {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    margin-bottom: 20px !important;
+  }
+
+  .summary-description {
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+    color: #2c3e50 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
   }
 </style>
 
-<div class="main-building-hero">
-  <h1>Palestine India Techno Park<br />Flagship Building</h1>
-  <p>
-    Strategically located within the wider Master Plan, our flagship building
-    stands as a testament to innovative design and a commitment to fostering
-    connected communities. Spanning 7 floors with a total built-up area of
-    9,500m², the building embodies distinctive elements that invite
-    collaboration and embrace natural daylight.
-  </p>
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<div class="main-building-section">
-  <div class="section-icon">
-    <!-- Replace with your icon/illustration -->
-    <img
-      src="/path/to/basement-icon.png"
-      alt="Basement Icon"
-      style="width: 60px; height: 60px"
-    />
+<div class="parallax-background">
+  <div class="floating-elements">
+    <div class="floating-element floating-element-1"></div>
+    <div class="floating-element floating-element-2"></div>
+    <div class="floating-element floating-element-3"></div>
+    <div class="floating-element floating-element-4"></div>
+    <div class="floating-element floating-element-5"></div>
+    <div class="floating-element floating-element-6"></div>
   </div>
-  <div class="section-content">
-    <div class="section-title">
-      Basement Floor – Don’t Just Work, Live Life!
-    </div>
-    <div class="section-desc">
-      The basement floor caters to holistic well-being, featuring parking
-      spaces, storage, and a health center. This health haven comprises an
-      indoor swimming pool, a relaxation area, a fully equipped gym, sauna,
-      lounge, and a poolside bar, all designed to offer a rejuvenating
-      experience.
-    </div>
+  <div class="geometric-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
   </div>
 </div>
 
-<div class="main-building-section">
-  <div class="section-icon">
-    <!-- Replace with your icon/illustration -->
-    <img
-      src="/path/to/groundfloor-icon.png"
-      alt="Ground Floor Icon"
-      style="width: 60px; height: 60px"
-    />
+<div class="main-building-container">
+  <div class="hero-section">
+    <h1 class="hero-title">
+      Palestine India Techno Park<br />Flagship Building
+    </h1>
+    <p class="hero-subtitle">
+      Strategically located within the wider Master Plan, our flagship building
+      stands as a testament to innovative design and a commitment to fostering
+      connected communities. Spanning 7 floors with a total built-up area of
+      9,500m², the building embodies distinctive elements that invite
+      collaboration and embrace natural daylight.
+    </p>
   </div>
-  <div class="section-content">
-    <div class="section-title">Ground Floor – Be Part of a Community!</div>
-    <div class="section-desc">
-      This floor is dedicated to a collaborative community atmosphere. Offering
-      flexible membership plans for freelancers, professionals, and remote
-      workers, our co-working zones can accommodate up to 45 individuals.
-      Alongside office desk spaces, members benefit from shared facilities like
-      phone booths, meeting rooms, library, auditorium, and a seminar room.
-      Gourmet food is served in the cafeteria, fostering a community hub that
-      can accommodate up to 60 people.
-    </div>
-  </div>
-</div>
 
-<div class="main-building-section">
-  <div class="section-icon">
-    <!-- Replace with your icon/illustration -->
-    <img
-      src="/path/to/startups-icon.png"
-      alt="Startups Icon"
-      style="width: 60px; height: 60px"
-    />
-  </div>
-  <div class="section-content">
-    <div class="section-title">
-      First & Second Floors – Clustering Start-Ups for Creative Collaboration
-    </div>
-    <div class="section-desc">
-      These floors provide flexible shared office spaces for startups at
-      different growth stages. With 24/7 accessibility, the building offers
-      smart amenities and a professional environment that fosters engagement.
-      The goal is to inspire curiosity, encourage innovation, stimulate
-      collaboration, and increase productivity.
-    </div>
-  </div>
-</div>
+  <!-- Divider -->
+  <div class="divider"></div>
 
-<div class="main-building-section">
-  <div class="section-icon">
-    <!-- Replace with your icon/illustration -->
-    <img
-      src="/path/to/innovation-icon.png"
-      alt="Innovation Icon"
-      style="width: 60px; height: 60px"
-    />
-  </div>
-  <div class="section-content">
-    <div class="section-title">
-      Third Floor – Leapfrog Your Business with Innovation!
-    </div>
-    <div class="section-desc">
-      Dedicated to innovation, the third floor hosts emerging technology labs in
-      Blockchain, FinTech, Virtual Reality, Augmented Reality, Internet of
-      Things, and Robotics. These labs facilitate the adoption of emerging
-      technologies, commercializing new products, and integration with global
-      value chains. The Innovation Labs aim to create a supportive ecosystem
-      through collaborative initiatives involving students, researchers,
-      entrepreneurs, mentors, investors, and private sector companies.
+  <!-- Section 1: Basement Floor -->
+  <div class="building-section">
+    <div class="floor-number">B</div>
+    <div class="section-content">
+      <h2 class="section-title">
+        Basement Floor – Don't Just Work, Live Life!
+      </h2>
+      <p class="section-description">
+        The basement floor caters to holistic well-being, featuring parking
+        spaces, storage, and a health center. This health haven comprises an
+        indoor swimming pool, a relaxation area, a fully equipped gym, sauna,
+        lounge, and a poolside bar, all designed to offer a rejuvenating
+        experience.
+      </p>
     </div>
   </div>
-</div>
 
-<div class="main-building-section">
-  <div class="section-icon">
-    <!-- Replace with your icon/illustration -->
-    <img
-      src="/path/to/corporate-icon.png"
-      alt="Corporate Icon"
-      style="width: 60px; height: 60px"
-    />
-  </div>
-  <div class="section-content">
-    <div class="section-title">
-      Fourth & Fifth Floors – Reserve Your Corporate Open Office Space NOW!
-    </div>
-    <div class="section-desc">
-      The upper floors offer flexible open office spaces with an average area of
-      120m², featuring exceptional views. Corporate offices provide a flexible
-      interior design allowing for office expansion, aligning with business
-      growth. Premium services and amenities are tailored to corporate needs.
-      The fifth floor additionally features a garden terrace, providing a daily
-      interaction with nature for relaxation or socializing with fellow members.
+  <!-- Section 2: Ground Floor -->
+  <div class="building-section">
+    <div class="floor-number">G</div>
+    <div class="section-content">
+      <h2 class="section-title">Ground Floor – Be Part of a Community!</h2>
+      <p class="section-description">
+        This floor is dedicated to a collaborative community atmosphere.
+        Offering flexible membership plans for freelancers, professionals, and
+        remote workers, our co-working zones can accommodate up to 45
+        individuals. Alongside office desk spaces, members benefit from shared
+        facilities like phone booths, meeting rooms, library, auditorium, and a
+        seminar room. Gourmet food is served in the cafeteria, fostering a
+        community hub that can accommodate up to 60 people.
+      </p>
     </div>
   </div>
-</div>
 
-<div
-  class="main-building-section"
-  style="
-    background: linear-gradient(90deg, #e3f2fd 0%, #f8f9fa 100%);
-    box-shadow: none;
-  "
->
-  <div class="section-icon">
-    <!-- Replace with your icon/illustration -->
-    <img
-      src="/path/to/summary-icon.png"
-      alt="Summary Icon"
-      style="width: 60px; height: 60px"
-    />
+  <!-- Section 3: First & Second Floors -->
+  <div class="building-section">
+    <div class="floor-number">1-2</div>
+    <div class="section-content">
+      <h2 class="section-title">
+        First & Second Floors – Clustering Start-Ups for Creative Collaboration
+      </h2>
+      <p class="section-description">
+        These floors provide flexible shared office spaces for startups at
+        different growth stages. With 24/7 accessibility, the building offers
+        smart amenities and a professional environment that fosters engagement.
+        The goal is to inspire curiosity, encourage innovation, stimulate
+        collaboration, and increase productivity.
+      </p>
+    </div>
   </div>
-  <div class="section-content">
-    <div class="section-title">A Dynamic Ecosystem</div>
-    <div class="section-desc">
+
+  <!-- Section 4: Third Floor -->
+  <div class="building-section">
+    <div class="floor-number">3</div>
+    <div class="section-content">
+      <h2 class="section-title">
+        Third Floor – Leapfrog Your Business with Innovation!
+      </h2>
+      <p class="section-description">
+        Dedicated to innovation, the third floor hosts emerging technology labs
+        in Blockchain, FinTech, Virtual Reality, Augmented Reality, Internet of
+        Things, and Robotics. These labs facilitate the adoption of emerging
+        technologies, commercializing new products, and integration with global
+        value chains. The Innovation Labs aim to create a supportive ecosystem
+        through collaborative initiatives involving students, researchers,
+        entrepreneurs, mentors, investors, and private sector companies.
+      </p>
+    </div>
+  </div>
+
+  <!-- Section 5: Fourth & Fifth Floors -->
+  <div class="building-section">
+    <div class="floor-number">4-5</div>
+    <div class="section-content">
+      <h2 class="section-title">
+        Fourth & Fifth Floors – Reserve Your Corporate Open Office Space NOW!
+      </h2>
+      <p class="section-description">
+        The upper floors offer flexible open office spaces with an average area
+        of 120m², featuring exceptional views. Corporate offices provide a
+        flexible interior design allowing for office expansion, aligning with
+        business growth. Premium services and amenities are tailored to
+        corporate needs. The fifth floor additionally features a garden terrace,
+        providing a daily interaction with nature for relaxation or socializing
+        with fellow members.
+      </p>
+    </div>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="summary-section">
+    <h2 class="summary-title">A Dynamic Ecosystem</h2>
+    <p class="summary-description">
       At the Palestine India Techno Park, our flagship building is more than
       just a physical space—it's a dynamic ecosystem designed to inspire,
       innovate, and cultivate collaboration.
+    </p>
+  </div>
+
+  <!-- Video Section -->
+  <div class="video-section">
+    <div class="video-container">
+      <iframe
+        src="https://www.youtube.com/embed/Lxs7q0hFb7Q?si=XcvnkfjdSl_LnCcI"
+        title="Palestine India Techno Park Building Tour"
+        allowfullscreen
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+      >
+      </iframe>
     </div>
   </div>
 </div>
 
-<div class="main-building-video">
-  <iframe
-    src="https://www.youtube.com/embed/Lxs7q0hFb7Q?si=XcvnkfjdSl_LnCcI"
-    title="YouTube video player"
-    allowfullscreen
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin"
-  ></iframe>
-</div>
+<script>
+  $(document).ready(function () {
+    console.log("jQuery loaded and ready!");
+    console.log("Floating elements found:", $(".floating-element").length);
+
+    // Parallax scroll effects for geometric shapes and floating elements
+    $(window).scroll(function () {
+      var scroll = $(window).scrollTop();
+
+      // Simple movement for geometric shapes
+      $(".shape-1").css({
+        transform: `translate(${scroll * 0.1}px, ${scroll * 0.05}px)`,
+      });
+
+      $(".shape-2").css({
+        transform: `translate(${scroll * -0.08}px, ${scroll * 0.07}px)`,
+      });
+
+      $(".shape-3").css({
+        transform: `translate(${scroll * 0.06}px, ${scroll * -0.04}px)`,
+      });
+
+      // Parallax movement for floating elements
+      $(".floating-element-1").css({
+        transform: `translate(${scroll * 0.03}px, ${scroll * 0.02}px)`,
+      });
+
+      $(".floating-element-2").css({
+        transform: `translate(${scroll * -0.04}px, ${scroll * 0.06}px)`,
+      });
+    });
+  });
+</script>
