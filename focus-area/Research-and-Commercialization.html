@@ -1,0 +1,864 @@
+<style type="text/css">
+  /* Enhanced Research Page Styles with Advanced Animations */
+  * {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  }
+
+  .research-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Scroll-triggered animations */
+  .scroll-animate {
+    opacity: 0 !important;
+    transform: translateY(50px) !important;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  }
+
+  .scroll-animate.in-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .page-header {
+    text-align: center !important;
+    margin-bottom: 50px !important;
+    padding: 60px 40px !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-radius: 25px !important;
+    margin-bottom: 80px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .page-header::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(65, 148, 150, 0.03) 0%,
+      transparent 70%
+    );
+    animation: headerShimmer 4s ease-in-out infinite;
+  }
+
+  @keyframes headerSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes headerShimmer {
+    0%,
+    100% {
+      transform: translateX(-100%) translateY(-100%) rotate(0deg);
+    }
+    50% {
+      transform: translateX(0%) translateY(0%) rotate(180deg);
+    }
+  }
+
+  .page-title {
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
+    color: #333 !important;
+    margin-bottom: 25px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9, #419496) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: titleGradientFlow 3s ease-in-out infinite !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  @keyframes titleGradientFlow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .page-subtitle {
+    font-size: 1.4rem !important;
+    color: #666 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    font-weight: 400 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    line-height: 1.8 !important;
+  }
+
+  .content-grid {
+    display: grid !important;
+    gap: 40px !important;
+    margin-bottom: 80px !important;
+  }
+
+  .content-card {
+    background: white !important;
+    padding: 50px !important;
+    border-radius: 25px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #f0f0f0 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .content-card:hover {
+    transform: translateY(-15px) scale(1.02) !important;
+    box-shadow: 0 25px 60px rgba(65, 148, 150, 0.2) !important;
+  }
+
+  .content-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, #419496, #5bb7b9, #419496);
+    background-size: 200% 100%;
+    animation: cardGradientFlow 3s ease-in-out infinite;
+  }
+
+  @keyframes cardGradientFlow {
+    0%,
+    100% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 0%;
+    }
+  }
+
+  .content-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transition: left 0.6s ease-in-out;
+  }
+
+  .content-card:hover::after {
+    left: 100%;
+  }
+
+  .card-title {
+    font-size: 2rem !important;
+    font-weight: 800 !important;
+    color: #333 !important;
+    margin-bottom: 25px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .card-icon {
+    width: 60px !important;
+    height: 60px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9) !important;
+    border-radius: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-size: 1.8rem !important;
+    font-weight: bold !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .card-icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    transform: translate(-50%, -50%);
+  }
+
+  .content-card:hover .card-icon {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 10px 25px rgba(65, 148, 150, 0.4);
+  }
+
+  .content-card:hover .card-icon::before {
+    width: 100%;
+    height: 100%;
+  }
+
+  .card-content {
+    color: #666 !important;
+    line-height: 1.8 !important;
+    font-size: 1.15rem !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .card-content p {
+    margin-bottom: 20px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .content-card:hover .card-content p {
+    transform: translateX(5px) !important;
+  }
+
+  .objectives-section {
+    padding: 80px 20px !important;
+    margin: 80px 0 !important;
+    position: relative !important;
+  }
+
+  .objectives-title {
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    color: #333 !important;
+    text-align: left !important;
+    margin-bottom: 60px !important;
+    position: relative !important;
+    padding-right: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+
+  .objectives-title::after {
+    content: "" !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background: #419496 !important;
+    opacity: 1 !important;
+  }
+
+  .objectives-list {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    gap: 30px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+
+  .objective-item {
+    background: white !important;
+    padding: 25px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 25px !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .objective-item:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 50px rgba(65, 148, 150, 0.15) !important;
+  }
+
+  .objective-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(65, 148, 150, 0.1),
+      transparent
+    );
+    transition: left 0.6s ease;
+  }
+
+  .objective-item:hover::before {
+    left: 100%;
+  }
+
+  .objective-number {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 1.3rem !important;
+    flex-shrink: 0 !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .objective-number::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    transition: all 0.4s ease !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .objective-item:hover .objective-number {
+    transform: scale(1.2) rotate(360deg) !important;
+    box-shadow: 0 8px 20px rgba(65, 148, 150, 0.4) !important;
+  }
+
+  .objective-item:hover .objective-number::before {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .objective-text {
+    color: #666 !important;
+    line-height: 1.7 !important;
+    font-size: 1.15rem !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .objective-item:hover .objective-text {
+    color: #555 !important;
+    transform: translateX(10px) !important;
+  }
+
+  .infrastructure-section {
+    margin: 80px 0 !important;
+    position: relative !important;
+  }
+
+  .infrastructure-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50% !important;
+    right: -20% !important;
+    width: 300px !important;
+    height: 300px !important;
+    background: linear-gradient(
+      45deg,
+      rgba(65, 148, 150, 0.1),
+      transparent
+    ) !important;
+    border-radius: 50% !important;
+    animation: floatingBubble 8s ease-in-out infinite !important;
+  }
+
+  .infrastructure-section::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -30% !important;
+    left: -15% !important;
+    width: 200px !important;
+    height: 200px !important;
+    background: linear-gradient(
+      45deg,
+      rgba(91, 183, 185, 0.08),
+      transparent
+    ) !important;
+    border-radius: 50% !important;
+    animation: floatingBubble 6s ease-in-out infinite reverse !important;
+  }
+
+  @keyframes floatingBubble {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(-10px) rotate(240deg);
+    }
+  }
+
+  .infrastructure-title {
+    font-size: 2.8rem !important;
+    font-weight: 900 !important;
+    color: #333 !important;
+    text-align: left !important;
+    margin-bottom: 50px !important;
+    position: relative !important;
+    padding-right: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+
+  .infrastructure-title::after {
+    content: "" !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background: #419496 !important;
+    opacity: 1 !important;
+  }
+
+  .infrastructure-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 35px !important;
+    margin-top: 50px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .infrastructure-item {
+    background: white !important;
+    padding: 45px 35px !important;
+    border-radius: 20px !important;
+    color: #333 !important;
+    text-align: center !important;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    border: 2px solid #419496 !important;
+  }
+
+  .infrastructure-item:hover {
+    background: linear-gradient(135deg, #419496, #5bb7b9) !important;
+    color: white !important;
+    transform: translateY(-15px) scale(1.05) !important;
+    box-shadow: 0 25px 60px rgba(65, 148, 150, 0.4) !important;
+  }
+
+  .infrastructure-item::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 70%
+    );
+    animation: infrastructureShimmer 4s ease-in-out infinite;
+    transition: all 0.3s ease;
+  }
+
+  @keyframes infrastructureShimmer {
+    0%,
+    100% {
+      transform: translateX(-100%) translateY(-100%) rotate(0deg);
+    }
+    50% {
+      transform: translateX(0%) translateY(0%) rotate(180deg);
+    }
+  }
+
+  .infrastructure-item:hover::before {
+    animation-duration: 1s;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.25) 0%,
+      transparent 50%
+    );
+  }
+
+  .infrastructure-name {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    z-index: 2 !important;
+    transition: all 0.3s ease !important;
+    color: #333 !important;
+  }
+
+  .infrastructure-item:hover .infrastructure-name {
+    transform: translateY(-5px) !important;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    color: white !important;
+  }
+
+  .infrastructure-desc {
+    font-size: 1.1rem !important;
+    opacity: 0.8 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    line-height: 1.6 !important;
+    transition: all 0.3s ease !important;
+    color: #666 !important;
+  }
+
+  .infrastructure-item:hover .infrastructure-desc {
+    opacity: 0.9 !important;
+    transform: translateY(5px) !important;
+    color: white !important;
+  }
+
+  .closing-section {
+    text-align: center !important;
+    padding: 60px 50px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9, #419496) !important;
+    background-size: 200% 200% !important;
+    color: white !important;
+    border-radius: 25px !important;
+    margin-top: 80px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    animation: gradientFlow 6s ease-in-out infinite !important;
+  }
+
+  @keyframes gradientFlow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .closing-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: conic-gradient(
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    ) !important;
+    animation: rotatingShine 8s linear infinite !important;
+  }
+
+  @keyframes rotatingShine {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .closing-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 25px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  @keyframes titleGlow {
+    0%,
+    100% {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+      text-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  .closing-text {
+    font-size: 1.25rem !important;
+    opacity: 0.95 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    line-height: 1.7 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    animation: textFloat 4s ease-in-out infinite !important;
+  }
+
+  @keyframes textFloat {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem;
+    }
+
+    .content-card,
+    .objectives-section,
+    .closing-section {
+      padding: 30px 20px;
+    }
+
+    .objectives-title,
+    .infrastructure-title {
+      font-size: 2rem;
+    }
+
+    .infrastructure-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="research-container">
+  <div class="page-header">
+    <h1 class="page-title">Research and Commercialization</h1>
+    <p class="page-subtitle">
+      Advancing innovation and commercialization by supporting the research
+      community in translating discoveries into market-ready technologies
+    </p>
+  </div>
+
+  <div class="content-grid scroll-animate">
+    <div class="content-card">
+      <h2 class="card-title">
+        <span class="card-icon">R</span>
+        Research Support Office
+      </h2>
+      <div class="card-content">
+        <p>
+          The Research Support Office provides a one-stop gateway for partners
+          seeking expertise, infrastructure and linkages to scale their work. We
+          offer executive guidance, technical project management, and
+          administrative assistance to onsite R&D units.
+        </p>
+        <p>
+          Through our programs and facilities, partners gain access to
+          mentorship from industry veterans, networking events, and a
+          collaborative community of scientists and entrepreneurs.
+        </p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2 class="card-title">
+        <span class="card-icon">Q</span>
+        Rising Research Quality
+      </h2>
+      <div class="card-content">
+        <p>
+          Palestinian research has considerably strengthened in quality, rigour
+          and impact in recent years. By supporting applied R&D and enterprises
+          around ideas with market-fit, we help transition groundbreaking
+          scientific work into tangible benefit for communities and job
+          opportunities.
+        </p>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <h2 class="card-title">
+        <span class="card-icon">S</span>
+        Fostering Spinouts and Entrepreneurship
+      </h2>
+      <div class="card-content">
+        <p>
+          We consider spinouts a key path for realizing economic returns on
+          national R&D spending. Our programs actively promote and mentor
+          spinouts from partner institutions with commercially oriented
+          research. The goal is to maximize innovation through new ventures
+          tackling important issues.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="objectives-section scroll-animate">
+    <h2 class="objectives-title">Our Strategic Objectives</h2>
+    <div class="objectives-list">
+      <div class="objective-item">
+        <div class="objective-number">1</div>
+        <div class="objective-text">
+          Facilitating multi-stakeholder partnerships between academia, industry
+          and investors through forums, workshops and networking platforms
+        </div>
+      </div>
+
+      <div class="objective-item">
+        <div class="objective-number">2</div>
+        <div class="objective-text">
+          Identifying commercially promising research through a stringent
+          evaluation process and advising on go-to-market strategies
+        </div>
+      </div>
+
+      <div class="objective-item">
+        <div class="objective-number">3</div>
+        <div class="objective-text">
+          Running accelerator programs to help translate ideas into minimally
+          viable products and seed-funded startups
+        </div>
+      </div>
+
+      <div class="objective-item">
+        <div class="objective-number">4</div>
+        <div class="objective-text">
+          Attracting high-impact local and foreign investment in ventures with
+          innovative solutions and scalable business models
+        </div>
+      </div>
+
+      <div class="objective-item">
+        <div class="objective-number">5</div>
+        <div class="objective-text">
+          Monitoring performance indicators and societal reach of commercialized
+          research
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="infrastructure-section scroll-animate">
+    <h2 class="infrastructure-title">Innovation Infrastructure</h2>
+    <p
+      style="
+        text-align: left;
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 40px;
+      "
+    >
+      State-of-the-art facilities fostering collaborative research and
+      development
+    </p>
+
+    <div class="infrastructure-grid">
+      <div class="infrastructure-item">
+        <div class="infrastructure-name">5G Testing Arena</div>
+        <div class="infrastructure-desc">
+          Advanced testing capabilities for next-generation applications
+        </div>
+      </div>
+
+      <div class="infrastructure-item">
+        <div class="infrastructure-name">IoT Innovation Labs</div>
+        <div class="infrastructure-desc">
+          Dedicated spaces for Internet of Things experimentation
+        </div>
+      </div>
+
+      <div class="infrastructure-item">
+        <div class="infrastructure-name">Biotechnology Centers</div>
+        <div class="infrastructure-desc">
+          Cutting-edge biotech research and development facilities
+        </div>
+      </div>
+
+      <div class="infrastructure-item">
+        <div class="infrastructure-name">Fabrication Labs</div>
+        <div class="infrastructure-desc">
+          Modern centers for prototyping and manufacturing
+        </div>
+      </div>
+
+      <div class="infrastructure-item">
+        <div class="infrastructure-name">AI Research Hubs</div>
+        <div class="infrastructure-desc">
+          Artificial intelligence and machine learning facilities
+        </div>
+      </div>
+
+      <div class="infrastructure-item">
+        <div class="infrastructure-name">Collaboration Spaces</div>
+        <div class="infrastructure-desc">
+          Modern environments for cross-disciplinary innovation
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing-section scroll-animate">
+    <h2 class="closing-title">Maximizing Scientific Impact</h2>
+    <p class="closing-text">
+      With strategic long-term support, we strive to maximize the wide-ranging
+      prosperity unlocked by Palestinian scientific progress and problem-solving
+      spirit. Join us in transforming research into real-world solutions that
+      benefit communities and drive economic growth.
+    </p>
+  </div>
+</div>
+
+<script>
+  // Scroll-triggered animations
+  function handleScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    }, observerOptions);
+
+    // Add scroll-animate class to sections
+    const sections = document.querySelectorAll(
+      ".content-grid, .objectives-section, .infrastructure-section, .closing-section"
+    );
+    sections.forEach((section) => {
+      section.classList.add("scroll-animate");
+      observer.observe(section);
+    });
+
+    // Add staggered animation delays for grid items
+    const objectiveItems = document.querySelectorAll(".objective-item");
+    objectiveItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    const infrastructureItems = document.querySelectorAll(
+      ".infrastructure-item"
+    );
+    infrastructureItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.15}s`;
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener("DOMContentLoaded", handleScrollAnimations);
+</script>

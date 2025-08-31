@@ -1,0 +1,532 @@
+<style type="text/css">
+  /* Enhanced Workforce Development Page Styles */
+  * {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  }
+
+  .workforce-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+  }
+
+  /* Scroll-triggered animations */
+  .scroll-animate {
+    opacity: 0 !important;
+    transform: translateY(50px) !important;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  }
+
+  .scroll-animate.in-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .page-header {
+    text-align: center !important;
+    margin-bottom: 80px !important;
+    padding: 60px 40px !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    border-radius: 25px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .page-header::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50% !important;
+    left: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: radial-gradient(
+      circle,
+      rgba(65, 148, 150, 0.03) 0%,
+      transparent 70%
+    ) !important;
+    animation: headerShimmer 4s ease-in-out infinite !important;
+  }
+
+  @keyframes headerShimmer {
+    0%,
+    100% {
+      transform: translateX(-100%) translateY(-100%) rotate(0deg);
+    }
+    50% {
+      transform: translateX(0%) translateY(0%) rotate(180deg);
+    }
+  }
+
+  .page-title {
+    font-size: 3.5rem !important;
+    font-weight: 900 !important;
+    color: #333 !important;
+    margin-bottom: 25px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9, #419496) !important;
+    background-size: 200% 200% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: titleGradientFlow 3s ease-in-out infinite !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  @keyframes titleGradientFlow {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .page-subtitle {
+    font-size: 1.4rem !important;
+    color: #666 !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    font-weight: 400 !important;
+    position: relative !important;
+    z-index: 2 !important;
+    line-height: 1.8 !important;
+  }
+
+  .overview-section {
+    background: white !important;
+    padding: 50px !important;
+    border-radius: 25px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #f0f0f0 !important;
+    margin-bottom: 80px !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .overview-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 5px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9, #419496) !important;
+    background-size: 200% 100% !important;
+    animation: gradientFlow 3s ease-in-out infinite !important;
+  }
+
+  @keyframes gradientFlow {
+    0%,
+    100% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 0%;
+    }
+  }
+
+  .overview-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #333 !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+  }
+
+  .overview-content {
+    font-size: 1.15rem !important;
+    color: #666 !important;
+    line-height: 1.8 !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+  }
+
+  .programs-section {
+    margin: 80px 0 !important;
+  }
+
+  .section-title {
+    font-size: 3rem !important;
+    font-weight: 900 !important;
+    color: #333 !important;
+    text-align: left !important;
+    margin-bottom: 60px !important;
+    position: relative !important;
+    padding-right: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 30px !important;
+  }
+
+  .section-title::after {
+    content: "" !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background: #419496 !important;
+    opacity: 1 !important;
+  }
+
+  .programs-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    gap: 30px !important;
+    margin-bottom: 50px !important;
+  }
+
+  .program-card {
+    background: white !important;
+    padding: 40px 30px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+    border: 2px solid transparent !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    text-align: center !important;
+  }
+
+  .program-card:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 50px rgba(65, 148, 150, 0.15) !important;
+    border-color: #419496 !important;
+  }
+
+  .program-card::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(65, 148, 150, 0.1),
+      transparent
+    ) !important;
+    transition: left 0.6s ease !important;
+  }
+
+  .program-card:hover::before {
+    left: 100% !important;
+  }
+
+  .program-icon {
+    width: 70px !important;
+    height: 70px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 25px !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 15px !important;
+  }
+
+  .program-icon img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+    transition: all 0.4s ease !important;
+  }
+
+  .program-icon::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    transition: all 0.4s ease !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .program-card:hover .program-icon {
+    transform: scale(1.05) !important;
+  }
+
+  .program-card:hover .program-icon::before {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .program-title {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    margin-bottom: 15px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .program-card:hover .program-title {
+    color: #419496 !important;
+    transform: translateY(-5px) !important;
+  }
+
+  .program-description {
+    color: #666 !important;
+    line-height: 1.7 !important;
+    font-size: 1.05rem !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .program-card:hover .program-description {
+    color: #555 !important;
+    transform: translateY(5px) !important;
+  }
+
+  .impact-section {
+    background: white !important;
+    padding: 60px 50px !important;
+    border-radius: 25px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
+    margin: 80px 0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .impact-section::before {
+    content: "" !important;
+    position: absolute !important;
+    top: -50% !important;
+    right: -50% !important;
+    width: 200% !important;
+    height: 200% !important;
+    background: conic-gradient(
+      from 0deg,
+      transparent,
+      rgba(65, 148, 150, 0.05),
+      transparent
+    ) !important;
+    animation: rotateBackground 20s linear infinite !important;
+  }
+
+  @keyframes rotateBackground {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .impact-title {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    color: #333 !important;
+    text-align: center !important;
+    margin-bottom: 40px !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .impact-content {
+    font-size: 1.15rem !important;
+    color: #666 !important;
+    line-height: 1.8 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .page-title {
+      font-size: 2.5rem !important;
+    }
+
+    .programs-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .section-title {
+      font-size: 2rem !important;
+    }
+
+    .overview-section,
+    .impact-section {
+      padding: 30px 20px !important;
+    }
+  }
+</style>
+
+<div class="workforce-container">
+  <div class="page-header">
+    <h1 class="page-title">Workforce Development</h1>
+    <p class="page-subtitle">
+      Enhancing skills, knowledge, and capabilities to meet current and future
+      labor market needs through comprehensive training and development programs
+    </p>
+  </div>
+
+  <div class="overview-section scroll-animate">
+    <h2 class="overview-title">Our Mission</h2>
+    <div class="overview-content">
+      <p>
+        At the Palestine Techno Park we work on the enhancement of the skills,
+        knowledge, and capabilities of the workforce to meet the current and
+        future needs of the labor market. We accomplish this through
+        initiatives, programs, and strategies designed to improve the
+        employability, productivity, and overall effectiveness of workers.
+        Workforce development encompasses various activities aimed at preparing
+        individuals for the demands of the job market, ensuring a skilled and
+        adaptable workforce.
+      </p>
+    </div>
+  </div>
+
+  <div class="programs-section scroll-animate">
+    <h2 class="section-title">Our Programs & Services</h2>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-icon">
+          <img
+            src="public/files/2025/website-assets/workforce/graduate.png"
+            alt="Education and Training"
+          />
+        </div>
+        <h3 class="program-title">Education and Training</h3>
+        <p class="program-description">
+          Providing educational opportunities and training programs to equip
+          individuals with the necessary skills and knowledge for specific roles
+          or industries.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">
+          <img
+            src="public/files/2025/website-assets/workforce/light.png"
+            alt="Skill Enhancement"
+          />
+        </div>
+        <h3 class="program-title">Skill Enhancement</h3>
+        <p class="program-description">
+          Offering opportunities for current employees or job seekers to enhance
+          their existing skills or acquire new ones that are in demand in the
+          evolving job market.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">
+          <img
+            src="public/files/2025/website-assets/workforce/briefcase.png"
+            alt="Job Placement"
+          />
+        </div>
+        <h3 class="program-title">Job Placement</h3>
+        <p class="program-description">
+          Facilitating the placement of individuals into suitable employment
+          opportunities by connecting them with employers seeking specific skill
+          sets.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">
+          <img
+            src="public/files/2025/website-assets/workforce/chat.png"
+            alt="Career Counseling"
+          />
+        </div>
+        <h3 class="program-title">Career Counseling</h3>
+        <p class="program-description">
+          Providing guidance and support to individuals in making informed
+          decisions about their career paths, including exploring potential job
+          opportunities and growth trajectories.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">
+          <img
+            src="public/files/2025/website-assets/workforce/handshake.png"
+            alt="Partnerships with Employers"
+          />
+        </div>
+        <h3 class="program-title">Partnerships with Employers</h3>
+        <p class="program-description">
+          Collaborating with businesses and industries to understand their
+          workforce needs, ensuring that training programs align with current
+          job market demands.
+        </p>
+      </div>
+
+      <div class="program-card">
+        <div class="program-icon">
+          <img
+            src="public/files/2025/website-assets/workforce/open-book.png"
+            alt="Continuous Learning"
+          />
+        </div>
+        <h3 class="program-title">Continuous Learning</h3>
+        <p class="program-description">
+          Encouraging a culture of lifelong learning to adapt to changing
+          technologies and market trends, fostering ongoing professional
+          development.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="impact-section scroll-animate">
+    <h2 class="impact-title">Economic Impact & Vision</h2>
+    <div class="impact-content">
+      <p>
+        Workforce development plays a crucial role in economic growth, as it
+        helps bridge the gap between the skills individuals possess and the
+        skills demanded by employers. It contributes to building a resilient,
+        adaptable, and competitive workforce in response to the evolving needs
+        of industries and the broader economy.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scroll-triggered animations
+  function handleScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    }, observerOptions);
+
+    // Add scroll-animate class and observe sections
+    const sections = document.querySelectorAll(
+      ".overview-section, .programs-section, .impact-section"
+    );
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Add staggered animation delays for program cards
+    const programCards = document.querySelectorAll(".program-card");
+    programCards.forEach((card, index) => {
+      card.style.transitionDelay = `${index * 0.15}s`;
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener("DOMContentLoaded", handleScrollAnimations);
+</script>
