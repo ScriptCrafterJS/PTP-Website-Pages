@@ -1,43 +1,294 @@
-<p>
-  At Palestine Techno Park, we recognize the significance of strategic
-  partnerships in achieving our objectives and adding substantial value to our
-  initiatives. Our esteemed partners play a crucial role in contributing diverse
-  perspectives, resources, and expertise, collectively propelling us toward
-  success.
-</p>
+<style type="text/css">
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+  }
 
-<p><strong>Key Contributions of Our Partners:</strong></p>
+  * {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  }
 
-<ol>
-  <li>
-    <strong>Expertise and Insights:&nbsp;</strong>Our partners bring a wealth of
-    industry-specific expertise and insights, enriching our understanding and
-    approach to various challenges.
-  </li>
-  <li>
-    <strong>Resource Collaboration:&nbsp;</strong>Collaborating with our
-    partners allows us to pool resources, facilitating the implementation of
-    innovative projects and initiatives.
-  </li>
-  <li>
-    <strong>Synergy for Innovation:</strong>&nbsp;The collaborative efforts with
-    our partners foster an environment of innovation, where diverse perspectives
-    converge to generate groundbreaking ideas.
-  </li>
-  <li>
-    <strong>Global Reach:</strong>&nbsp;Leveraging the global reach of our
-    partners enhances our network, providing opportunities for international
-    collaboration, knowledge exchange, and market access5. **Support f
-  </li>
-  <li>
-    <strong>Objectives:</strong>&nbsp;Our partners actively contribute to
-    achieving our objectives, aligning their capabilities with our mission to
-    drive economic growth, foster innovation, and support the Palestinian
-    entrepreneurial ecosystem.
-  </li>
-</ol>
+  .partners-page {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 40px 20px !important;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+  }
 
-<p><strong>Join Us in Building a Sustainable Future:</strong></p>
+  .hero-section {
+    text-align: center !important;
+    margin-bottom: 60px !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    padding: 60px 40px !important;
+    border-radius: 20px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .partners-page .hero-title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    margin-bottom: 20px !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .partners-page .hero-description {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 16px !important;
+    color: #666 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+
+  .contributions-section {
+    margin: 80px 0 !important;
+  }
+
+  .partners-page .section-title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    text-align: center !important;
+    margin-bottom: 50px !important;
+    position: relative !important;
+  }
+
+  .section-title:after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #419496, #5bb7b9) !important;
+    border-radius: 2px !important;
+  }
+
+  .contributions-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+    margin-bottom: 60px !important;
+  }
+
+  .contributions-grid-bottom {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    justify-content: center !important;
+  }
+
+  .contribution-card {
+    background: #fff !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid #f0f0f0 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .contribution-card:before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #419496, #5bb7b9) !important;
+  }
+
+  .contribution-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 40px rgba(65, 148, 150, 0.15) !important;
+    background: #419496 !important;
+  }
+
+  .contribution-card:hover .card-icon {
+    background: white !important;
+    color: #419496 !important;
+  }
+
+  .partners-page .contribution-card:hover .card-title {
+    color: white !important;
+  }
+
+  .partners-page .contribution-card:hover .card-description {
+    color: white !important;
+  }
+
+  .card-icon {
+    width: 50px !important;
+    height: 50px !important;
+    background: linear-gradient(135deg, #419496, #5bb7b9) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 20px !important;
+    color: white !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .partners-page .card-title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #333 !important;
+    margin-bottom: 15px !important;
+    transition: color 0.3s ease !important;
+  }
+
+  .partners-page .card-description {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 14px !important;
+    color: #666 !important;
+    line-height: 1.7 !important;
+    transition: color 0.3s ease !important;
+  }
+
+  .partners-page .partners-title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    text-align: center !important;
+    margin: 80px 0 50px 0 !important;
+    position: relative !important;
+  }
+
+  .partners-title:after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 60px !important;
+    height: 4px !important;
+    background: linear-gradient(90deg, #419496, #5bb7b9) !important;
+    border-radius: 2px !important;
+  }
+
+  @media (max-width: 768px) {
+    .partners-page {
+      padding: 20px 15px !important;
+    }
+
+    .hero-section {
+      padding: 40px 20px !important;
+    }
+
+    .hero-title {
+      font-size: 2rem !important;
+    }
+
+    .hero-description {
+      text-align: center !important;
+    }
+
+    .contributions-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+  }
+</style>
+<div class="partners-page">
+  <div class="hero-section">
+    <h1 class="hero-title">Strategic Partnerships for Innovation</h1>
+
+    <p class="hero-description">
+      At Palestine Techno Park, we recognize the significance of strategic
+      partnerships in achieving our objectives and adding substantial value to
+      our initiatives. Our esteemed partners play a crucial role in contributing
+      diverse perspectives, resources, and expertise, collectively propelling us
+      toward success.
+    </p>
+  </div>
+
+  <div class="contributions-section">
+    <h2 class="section-title">Key Contributions of Our Partners</h2>
+
+    <div class="contributions-grid">
+      <div class="contribution-card">
+        <div class="card-icon">1</div>
+
+        <h3 class="card-title">Expertise and Insights</h3>
+
+        <p class="card-description">
+          Our partners bring a wealth of industry-specific expertise and
+          insights, enriching our understanding and approach to various
+          challenges.
+        </p>
+      </div>
+
+      <div class="contribution-card">
+        <div class="card-icon">2</div>
+
+        <h3 class="card-title">Resource Collaboration</h3>
+
+        <p class="card-description">
+          Collaborating with our partners allows us to pool resources,
+          facilitating the implementation of innovative projects and
+          initiatives.
+        </p>
+      </div>
+
+      <div class="contribution-card">
+        <div class="card-icon">3</div>
+
+        <h3 class="card-title">Synergy for Innovation</h3>
+
+        <p class="card-description">
+          The collaborative efforts with our partners foster an environment of
+          innovation, where diverse perspectives converge to generate
+          groundbreaking ideas.
+        </p>
+      </div>
+    </div>
+
+    <div class="contributions-grid-bottom">
+      <div class="contribution-card">
+        <div class="card-icon">4</div>
+
+        <h3 class="card-title">Global Reach</h3>
+
+        <p class="card-description">
+          Leveraging the global reach of our partners enhances our network,
+          providing opportunities for international collaboration, knowledge
+          exchange, and market access.
+        </p>
+      </div>
+
+      <div class="contribution-card">
+        <div class="card-icon">5</div>
+
+        <h3 class="card-title">Strategic Objectives</h3>
+
+        <p class="card-description">
+          Our partners actively contribute to achieving our objectives, aligning
+          their capabilities with our mission to drive economic growth, foster
+          innovation, and support the Palestinian entrepreneurial ecosystem.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="partners-title">Join Us in Building a Sustainable Future</h2>
+</div>
 
 <table
   align="center"
