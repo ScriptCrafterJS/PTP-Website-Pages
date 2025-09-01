@@ -1,0 +1,368 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+  /* Simple & Professional Foreign Direct Investment Page */
+  * {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+  }
+
+  .fdi-container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    line-height: 1.6 !important;
+    color: #333 !important;
+  }
+
+  /* Floating Top Bar */
+  .floating-top-bar {
+    position: absolute !important;
+    bottom: -44rem !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 26rem !important;
+    background: linear-gradient(
+      to bottom,
+      #419496 0%,
+      #419496 40%,
+      rgba(65, 148, 150, 0.8) 60%,
+      rgba(65, 148, 150, 0.4) 80%,
+      rgba(65, 148, 150, 0.1) 90%,
+      rgba(255, 255, 255, 0) 100%
+    ) !important;
+  }
+
+  /* Hero Section - Much Much Lower */
+  .fdi-hero-section {
+    position: relative !important;
+    width: 100vw !important;
+    margin-left: calc(-50vw + 50%) !important;
+    height: 44rem !important;
+    background-image: url("public/files/2025/website-assets/Foreign-Direct-Investment/268150-P5HM2W-787.svg") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* Scroll-triggered animations */
+  .scroll-animate {
+    opacity: 0 !important;
+    transform: translateY(50px) !important;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  }
+
+  .scroll-animate.in-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .fdi-hero-content {
+    text-align: center !important;
+    max-width: 800px !important;
+    padding: 0 40px !important;
+    position: absolute !important;
+    top: 0 !important;
+  }
+
+  .fdi-hero-title {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    margin-bottom: 20px !important;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8) !important;
+  }
+
+  .fdi-hero-subtitle {
+    font-size: 1.3rem !important;
+    color: #333 !important;
+    font-weight: 400 !important;
+    line-height: 1.6 !important;
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8) !important;
+  }
+
+  /* Content Section - No Background */
+  .fdi-content {
+    margin: 40px 0 !important;
+  }
+
+  .fdi-content p {
+    font-size: 1.1rem !important;
+    margin-bottom: 30px !important;
+    color: #333 !important;
+    text-align: justify !important;
+  }
+
+  /* Services Section */
+  .services-section {
+    margin-top: 40px !important;
+  }
+
+  .section-title {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #419496 !important;
+    margin-bottom: 30px !important;
+    text-align: left !important;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+  }
+
+  .section-title::after {
+    content: "" !important;
+    flex: 1 !important;
+    height: 2px !important;
+    background-color: #419496 !important;
+  }
+
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 20px !important;
+    margin-bottom: 40px !important;
+  }
+
+  .service-item {
+    background: white !important;
+    padding: 25px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid #419496 !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  }
+
+  .service-item:hover {
+    transform: translateX(10px) translateY(-5px) !important;
+    box-shadow: 0 15px 40px rgba(65, 148, 150, 0.25) !important;
+    background: #419496 !important;
+    border-left-color: white !important;
+  }
+
+  .service-title {
+    font-weight: 600 !important;
+    color: #419496 !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 10px !important;
+    transition: color 0.4s ease !important;
+  }
+
+  .service-item:hover .service-title {
+    color: white !important;
+  }
+
+  .service-description {
+    font-size: 1rem !important;
+    color: #666 !important;
+    line-height: 1.6 !important;
+    transition: color 0.4s ease !important;
+  }
+
+  .service-item:hover .service-description {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .closing-section {
+    margin-top: 40px !important;
+  }
+
+  .closing-section p {
+    font-size: 1.1rem !important;
+    line-height: 1.7 !important;
+    color: #333 !important;
+    text-align: center !important;
+    background: #f8f9fa !important;
+    padding: 30px !important;
+    border-radius: 8px !important;
+    border: 2px solid #419496 !important;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .fdi-hero-section {
+      height: 30rem !important;
+    }
+    .floating-top-bar {
+      bottom: -6rem !important;
+      height: 13rem !important;
+    }
+
+    .fdi-hero-title {
+      font-size: 2.2rem !important;
+    }
+
+    .fdi-hero-subtitle {
+      font-size: 1.1rem !important;
+    }
+
+    .fdi-content {
+      padding: 30px 0 !important;
+    }
+
+    .section-title {
+      font-size: 2rem !important;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr !important;
+      gap: 15px !important;
+    }
+
+    .service-item {
+      padding: 20px !important;
+    }
+  }
+</style>
+<div class="fdi-container">
+  <!-- Floating Top Bar -->
+  <div class="floating-top-bar"></div>
+
+  <!-- Hero Section - Much Lower -->
+  <div class="fdi-hero-section">
+    <div class="fdi-hero-content">
+      <h1 class="fdi-hero-title">Foreign Direct Investment</h1>
+      <p class="fdi-hero-subtitle">
+        Bridging Global Opportunities with Local Excellence
+      </p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div class="fdi-content scroll-animate">
+    <p>
+      Technopark and through its soft landing office helps multinational or
+      foreign information technology (IT) companies to establish or expand their
+      presence in Palestine. The goal is to ease the transition and ensure a
+      smooth and successful entry into the business environment. These services
+      aim to create a favorable environment for the company to "land softly" and
+      quickly become operational.
+    </p>
+
+    <div class="services-section scroll-animate">
+      <h2 class="section-title">Our Soft Landing Services</h2>
+
+      <div class="services-grid">
+        <div class="service-item scroll-animate">
+          <div class="service-title">Market Research and Analysis</div>
+          <div class="service-description">
+            Assistance in understanding the local IT market, identifying
+            opportunities, and assessing potential challenges. This includes
+            studying market trends, competitor analysis, and identifying target
+            demographics.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Legal and Regulatory Guidance</div>
+          <div class="service-description">
+            Guidance on legal requirements, business registration processes, and
+            compliance with local regulations. This can include assistance with
+            visas, permits, and other legal documentation.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Infrastructure Support</div>
+          <div class="service-description">
+            Assistance in finding suitable office spaces, co-working facilities,
+            or incubators. This may also include support for setting up the
+            necessary IT infrastructure.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Networking Opportunities</div>
+          <div class="service-description">
+            Facilitation of networking events, introductions to key industry
+            players, and participation in relevant conferences and forums.
+            Building a network in the local IT community is crucial for success.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Financial Assistance</div>
+          <div class="service-description">
+            Guidance on available financial incentives, tax benefits, and
+            potential grants or subsidies for IT companies entering the new
+            market.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Talent Acquisition</div>
+          <div class="service-description">
+            Support in recruiting local talent or advice on strategies for
+            bringing in skilled professionals. Assistance in understanding the
+            local labor market and cultural nuances.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Partnerships and Collaboration</div>
+          <div class="service-description">
+            Assistance in forming strategic partnerships with local businesses,
+            research institutions, or government entities. This can include
+            introductions and matchmaking services.
+          </div>
+        </div>
+
+        <div class="service-item scroll-animate">
+          <div class="service-title">Cultural Integration</div>
+          <div class="service-description">
+            Support in understanding the local culture, business etiquette, and
+            any unique factors that may impact business operations. This may
+            involve language training or cultural sensitivity workshops.
+          </div>
+        </div>
+      </div>
+
+      <div class="closing-section scroll-animate">
+        <h3 class="section-title">Why It Matters</h3>
+        <p>
+          By providing these soft landing services, organizations aim to
+          minimize the challenges associated with entering a new market, foster
+          a positive environment for growth, and accelerate the company's
+          integration into the local business ecosystem. These services are
+          particularly valuable for IT companies looking to expand globally or
+          enter a new region.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Scroll-triggered animations
+  function handleScrollAnimations() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    }, observerOptions);
+
+    // Add scroll-animate class and observe sections
+    const sections = document.querySelectorAll(".scroll-animate");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
+
+    // Add staggered animation delays for service items
+    const serviceItems = document.querySelectorAll(".service-item");
+    serviceItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 0.1}s`;
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener("DOMContentLoaded", handleScrollAnimations);
+</script>
