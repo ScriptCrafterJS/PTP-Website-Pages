@@ -240,105 +240,63 @@
     max-width: 800px !important;
     margin: 0 auto !important;
     line-height: 1.6 !important;
+    text-align: justify !important;
   }
 
   .building-section {
     position: relative !important;
     display: flex !important;
-    align-items: flex-start !important;
-    gap: 60px !important;
-    margin-bottom: 80px !important;
-    padding-left: 120px !important;
+    align-items: center !important;
+    gap: 40px !important;
+    margin-bottom: 50px !important;
+    padding: 20px 0 !important;
   }
 
   .building-section:last-child {
-    margin-bottom: 60px !important;
+    margin-bottom: 40px !important;
   }
 
-  /* Timeline line */
-  .building-section::before {
-    content: "" !important;
-    position: absolute !important;
-    left: 60px !important;
-    top: 100px !important;
-    bottom: -100px !important;
-    width: 3px !important;
-    background: linear-gradient(
-      180deg,
-      #419496 0%,
-      #419496 50%,
-      transparent 100%
-    ) !important;
-    border-left: 3px dashed #419496 !important;
-    background: transparent !important;
+  /* Alternating layouts */
+  .building-section:nth-child(odd) {
+    flex-direction: row !important;
   }
 
-  .building-section:last-child::before {
-    display: none !important;
-  }
-
-  /* Floor number circle */
-  .floor-number {
-    position: absolute !important;
-    left: 20px !important;
-    top: 20px !important;
-    width: 80px !important;
-    height: 80px !important;
-    border-radius: 50% !important;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
-    border: 3px solid #419496 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 32px !important;
-    font-weight: 900 !important;
-    color: #419496 !important;
-    z-index: 10 !important;
-    transition: all 0.3s ease !important;
-    cursor: pointer !important;
-  }
-
-  .floor-number,
-  .container .floor-number,
-  #all_body .floor-number {
-    font-size: 32px !important;
-    line-height: 1 !important;
-  }
-
-  .building-section:hover .floor-number {
-    background: #419496 !important;
-    color: #ffffff !important;
-    transform: scale(1.1) !important;
-    box-shadow: 0 8px 24px rgba(65, 148, 150, 0.3) !important;
+  .building-section:nth-child(even) {
+    flex-direction: row-reverse !important;
   }
 
   .section-content {
     flex: 1 !important;
-    padding: 20px !important;
-    background: #ffffff !important;
+    padding: 30px !important;
+    background: transparent !important;
     border-radius: 16px !important;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08) !important;
     transition: all 0.3s ease !important;
     position: relative !important;
     overflow: hidden !important;
   }
 
-  .section-content::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: -100% !important;
+  /* Special styling for basement floor (text-only section) */
+  .building-section:first-child .section-content {
+    background: transparent !important;
+  }
+
+  .section-image {
+    flex: 0 0 500px !important;
+    height: 350px !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .section-image img {
     width: 100% !important;
     height: 100% !important;
-    background: linear-gradient(
-      45deg,
-      transparent 30%,
-      rgba(65, 148, 150, 0.15) 50%,
-      transparent 70%
-    ) !important;
-    transform: skewX(-25deg) !important;
-    transition: left 0.6s ease !important;
-    z-index: 1 !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .section-image:hover img {
+    transform: scale(1.05) !important;
   }
 
   .section-content > * {
@@ -346,13 +304,8 @@
     z-index: 2 !important;
   }
 
-  .building-section:hover .section-content::before {
-    left: 100% !important;
-  }
-
   .building-section:hover .section-content {
     transform: translateY(-5px) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
   }
 
   .section-title {
@@ -386,7 +339,7 @@
     font-size: 16px !important;
     line-height: 1.7 !important;
     color: #4a4a4a !important;
-    text-align: left !important;
+    text-align: justify !important;
   }
 
   /* Responsive design */
@@ -408,28 +361,21 @@
     }
 
     .building-section {
-      padding-left: 70px !important;
-      gap: 30px !important;
-      margin-bottom: 60px !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      margin-bottom: 40px !important;
+      padding: 15px 0 !important;
     }
 
-    .building-section::before {
-      left: 30px !important;
-      top: 80px !important;
+    .building-section:nth-child(odd),
+    .building-section:nth-child(even) {
+      flex-direction: column !important;
     }
 
-    .floor-number {
-      left: 0px !important;
-      top: 20px !important;
-      width: 60px !important;
-      height: 60px !important;
-      font-size: 24px !important;
-    }
-
-    .floor-number,
-    .container .floor-number,
-    #all_body .floor-number {
-      font-size: 24px !important;
+    .section-image {
+      flex: none !important;
+      width: 100% !important;
+      height: 250px !important;
     }
 
     .section-title,
@@ -519,6 +465,7 @@
     color: #2c3e50 !important;
     max-width: 600px !important;
     margin: 0 auto !important;
+    text-align: justify !important;
   }
 
   /* Image Slider Styles */
@@ -661,7 +608,6 @@
 
   <!-- Section 1: Basement Floor -->
   <div class="building-section">
-    <div class="floor-number">B</div>
     <div class="section-content">
       <h2 class="section-title">
         <span class="floor-name">Basement Floor</span> – Don't Just Work, Live
@@ -679,7 +625,6 @@
 
   <!-- Section 2: Ground Floor -->
   <div class="building-section">
-    <div class="floor-number">G</div>
     <div class="section-content">
       <h2 class="section-title">
         <span class="floor-name">Ground Floor</span> – Be Part of a Community!
@@ -694,11 +639,16 @@
         community hub that can accommodate up to 60 people.
       </p>
     </div>
+    <div class="section-image">
+      <img
+        src="public/files/2025/website-assets/The%20Main%20Building/5-1707218544.png"
+        alt="Ground Floor - Co-working Space"
+      />
+    </div>
   </div>
 
   <!-- Section 3: First & Second Floors -->
   <div class="building-section">
-    <div class="floor-number">1-2</div>
     <div class="section-content">
       <h2 class="section-title">
         <span class="floor-name">First & Second Floors</span> – Clustering
@@ -712,11 +662,16 @@
         collaboration, and increase productivity.
       </p>
     </div>
+    <div class="section-image">
+      <img
+        src="public/files/2025/website-assets/The%20Main%20Building/7-1707218658.jpg"
+        alt="First & Second Floors - Startup Spaces"
+      />
+    </div>
   </div>
 
   <!-- Section 4: Third Floor -->
   <div class="building-section">
-    <div class="floor-number">3</div>
     <div class="section-content">
       <h2 class="section-title">
         <span class="floor-name">Third Floor</span> – Leapfrog Your Business
@@ -732,11 +687,16 @@
         entrepreneurs, mentors, investors, and private sector companies.
       </p>
     </div>
+    <div class="section-image">
+      <img
+        src="public/files/2025/website-assets/The%20Main%20Building/10-1707219010.jpg"
+        alt="Third Floor - Innovation Labs"
+      />
+    </div>
   </div>
 
   <!-- Section 5: Fourth & Fifth Floors -->
   <div class="building-section">
-    <div class="floor-number">4-5</div>
     <div class="section-content">
       <h2 class="section-title">
         <span class="floor-name">Fourth & Fifth Floors</span> – Reserve Your
@@ -751,6 +711,12 @@
         providing a daily interaction with nature for relaxation or socializing
         with fellow members.
       </p>
+    </div>
+    <div class="section-image">
+      <img
+        src="public/files/2025/website-assets/The%20Main%20Building/11-1707219079.jpg"
+        alt="Fourth & Fifth Floors - Corporate Offices"
+      />
     </div>
   </div>
 
@@ -777,68 +743,68 @@
       <div class="slider-wrapper" id="sliderWrapper">
         <div class="slide" data-slide="1">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/4-1707218511.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/eu2.jpg"
             alt="Technopark Building View 1"
           />
         </div>
         <div class="slide" data-slide="2">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/5-1707218544.png"
+            src="public/files/2025/website-assets/The Main Building/preview/kooreans2.jpg"
             alt="Technopark Building View 2"
           />
         </div>
         <div class="slide" data-slide="3">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/7-1707218658.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/3rd floor 2.jpg"
             alt="Technopark Building View 3"
           />
         </div>
         <div class="slide" data-slide="4">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/10-1707219010.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/seminar room.jpg"
             alt="Technopark Building View 4"
           />
         </div>
         <div class="slide" data-slide="5">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/11-1707219079.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/infront.jpg"
             alt="Technopark Building View 5"
           />
         </div>
         <div class="slide" data-slide="6">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/13-1707219193.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/ground-floor.jpg"
             alt="Technopark Building View 6"
           />
         </div>
         <div class="slide" data-slide="7">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/14-1707219242.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/outside.jpg"
             alt="Technopark Building View 7"
           />
         </div>
         <div class="slide" data-slide="8">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/15-1707219300.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/mahsooli.jpg"
             alt="Technopark Building View 8"
           />
         </div>
         <div class="slide" data-slide="9">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/16-1707219326.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/group.jpg"
             alt="Technopark Building View 9"
           />
         </div>
         <div class="slide" data-slide="10">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/17-1707219481.jpg"
+            src="public/files/2025/website-assets/The Main Building/preview/fablap.jpg"
             alt="Technopark Building View 10"
           />
         </div>
-        <div class="slide" data-slide="11">
+        <div class="slide" data-slide="10">
           <img
-            src="public/files/2025/website-assets/The%20Main%20Building/18-1707219581.jpg"
-            alt="Technopark Building View 11"
+            src="public/files/2025/website-assets/The Main Building/preview/child.jpg"
+            alt="Technopark Building View 10"
           />
         </div>
       </div>
