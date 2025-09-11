@@ -335,8 +335,66 @@
   }
 
   .ptp-team-member:hover {
-    transform: translateY(-10px) scale(1.03) !important;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .ptp-team-member:hover .ptp-team-overlay {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .ptp-team-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(135deg, #419496, #5bb4b6) !important;
+    color: white !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
+    border-radius: 8px !important;
+    opacity: 0 !important;
+    transform: translateY(100%) !important;
+    transition: all 0.4s ease !important;
+    z-index: 10 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .ptp-social-icons {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    margin-top: 0px !important;
+  }
+
+  .ptp-social-icon {
+    width: 60px !important;
+    height: 60px !important;
+    background: none !important;
+    border-radius: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  .ptp-social-icon img {
+    width: 60px !important;
+    height: 60px !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .ptp-social-icon:hover {
+    transform: scale(1.2) !important;
   }
 
   .ptp-team-photo {
@@ -373,6 +431,23 @@
     padding: 50px 20px 30px !important;
     text-align: center !important;
     border-radius: 0 0 8px 8px !important;
+  }
+
+  .ptp-team-overlay .ptp-team-name {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    color: white !important;
+    margin-bottom: 8px !important;
+    line-height: 1.3 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .ptp-team-overlay .ptp-team-role {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    margin-bottom: 10px !important;
   }
 
   .ptp-team-name {
@@ -435,20 +510,21 @@
     }
   }
 </style>
-
 <div class="ptp-governance">
   <!-- Header Section -->
   <div class="ptp-header">
     <h1>Governance Structure</h1>
+
     <p>
       Our leadership framework designed to drive innovation and excellence at
       Palestine Techno Park
     </p>
   </div>
-
   <!-- Governance Overview -->
+
   <div class="ptp-section">
     <h2 class="ptp-section-title">Governance Overview</h2>
+
     <p class="ptp-intro-text">
       The Palestine Techno Park (PTP) operates under a non-profit organizational
       framework, strategically guided by a diverse Board of Directors. This
@@ -458,12 +534,15 @@
 
     <div class="ptp-cards">
       <div class="ptp-card">
-        <div class="ptp-card-header"><h3>Birzeit University</h3></div>
+        <div class="ptp-card-header">
+          <h3>Birzeit University</h3>
+        </div>
+
         <div class="ptp-card-body">
           <p>
             As a leading educational institution, Birzeit University plays a
             fundamental role in shaping the strategic direction of Palestine
-            Techno Park. The university's representatives on the Board
+            Techno Park. The university&#39;s representatives on the Board
             contribute academic expertise, ensuring our initiatives align with
             educational objectives and foster collaboration between academia and
             industry.
@@ -472,11 +551,14 @@
       </div>
 
       <div class="ptp-card">
-        <div class="ptp-card-header"><h3>Tech Forum</h3></div>
+        <div class="ptp-card-header">
+          <h3>Tech Forum</h3>
+        </div>
+
         <div class="ptp-card-body">
           <p>
             The Tech Forum, established by IT pioneers from the private sector,
-            brings a business-oriented perspective to PTP's governance. Its
+            brings a business-oriented perspective to PTP&#39;s governance. Its
             representatives contribute insights and strategies rooted in private
             sector experiences, focusing on empowering youth and advancing
             technological innovation in Palestine.
@@ -487,188 +569,340 @@
 
     <p class="ptp-intro-text">
       The collaboration between Birzeit University and the Tech Forum represents
-      a powerful synergy between academia and industry—an essential alliance in
-      pursuing PTP's mission to support Palestine's entrepreneurship ecosystem.
-      Our non-profit structure underscores our commitment to community
-      development, technological advancement, and regional innovation.
+      a powerful synergy between academia and industry&mdash;an essential
+      alliance in pursuing PTP&#39;s mission to support Palestine&#39;s
+      entrepreneurship ecosystem. Our non-profit structure underscores our
+      commitment to community development, technological advancement, and
+      regional innovation.
     </p>
   </div>
-
   <!-- Board of Directors -->
+
   <div class="ptp-section" style="background-color: #e9f1f7">
     <h2 class="ptp-section-title">Board of Directors</h2>
+
     <p class="ptp-intro-text">
       Our Board of Directors reflects the strategic collaboration between
       Birzeit University and the Tech Forum, ensuring balanced representation of
       academic and industry perspectives.
     </p>
+
     <ul class="ptp-members-list">
       <li>
         <img
+          alt="Dr. Talal Shahwan"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/talal shahwan.jpg"
-          alt="Dr. Talal Shahwan"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Dr. Talal Shahwan</div>
+
           <div class="ptp-member-role">
-            President of Birzeit University – Chairperson
+            President of Birzeit University &ndash; Chairperson
           </div>
         </div>
       </li>
       <li>
         <img
+          alt="Mr. Ala Alaeddin"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/alaa.jpg"
-          alt="Mr. Ala Alaeddin"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Ala Alaeddin</div>
+
           <div class="ptp-member-role">Vice Chairman - Tech Forum</div>
         </div>
       </li>
       <li>
         <img
+          alt="Mr. Saad Abdul Hadi"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/saad.jpg"
-          alt="Mr. Saad Abdul Hadi"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Saad Abdul Hadi</div>
+
           <div class="ptp-member-role">Secretary of the Board - Tech Forum</div>
         </div>
       </li>
       <li>
         <img
+          alt="Mr. Jamil Daher"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/Jamil Daher.jpg"
-          alt="Mr. Jamil Daher"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Jamil Daher</div>
+
           <div class="ptp-member-role">Treasurer - Tech Forum</div>
         </div>
       </li>
       <li>
         <img
+          alt="Dr. Rana Khatib"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/rana_khatib_0.jpeg"
-          alt="Dr. Rana Khatib"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Dr. Rana Khatib</div>
+
           <div class="ptp-member-role">Birzeit University</div>
         </div>
       </li>
     </ul>
   </div>
-
   <!-- Management Team -->
+
   <div class="ptp-section">
     <h2 class="ptp-section-title">Management Team</h2>
+
     <p class="ptp-intro-text">
       Our dedicated management team plays a crucial role in implementing the
       vision and mission of Palestine Techno Park.
     </p>
+
     <div class="ptp-team-grid">
       <div class="ptp-team-member">
         <img
+          alt="Mr. Ala Alaeddin"
           class="ptp-team-photo"
           src="public/files/2025/website-assets/governance-structure/alaa.jpg"
-          alt="Mr. Ala Alaeddin"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Mr. Ala Alaeddin</div>
+
           <div class="ptp-team-role">Executive Board Member</div>
         </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/ala-alaeddin-a4227437/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:ala@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
+        </div>
       </div>
+
       <div class="ptp-team-member">
         <img
+          alt="Ms. Walaa Samara"
           class="ptp-team-photo"
           src="public/files/2025/website-assets/governance-structure/walaa samara.jpg"
-          alt="Ms. Walaa Samara"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Ms. Walaa Samara</div>
+
           <div class="ptp-team-role">Director of Programs</div>
         </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/walaasamara/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:walaa@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
+        </div>
       </div>
+
       <div class="ptp-team-member">
         <img
+          alt="Mr. Abdullah Abu Latifeh"
           class="ptp-team-photo"
           src="public/files/2025/website-assets/governance-structure/abdullah.jpeg"
-          alt="Mr. Abdullah Abu Latifeh"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Mr. Abdullah Abu Latifeh</div>
+
           <div class="ptp-team-role">Finance and Admin Coordinator</div>
         </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/abdallah-abu-latifeh/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:finance@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
+        </div>
       </div>
+
       <div class="ptp-team-member">
         <img
-          class="ptp-team-photo"
-          src="public/files/2025/website-assets/governance-structure/amal hamdan.jpg"
           alt="Ms. Amal Hamdan"
+          class="ptp-team-photo"
+          src="public/files/2025/website-assets/governance-structure/amal.JPG"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Ms. Amal Hamdan</div>
+
           <div class="ptp-team-role">Programs Coordinator</div>
         </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/amal-hamdan-74a05216a/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:amal@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
+        </div>
       </div>
+
       <div class="ptp-team-member">
         <img
+          alt="Ms. Amal Hamdan"
           class="ptp-team-photo"
           src="public/files/2025/website-assets/governance-structure/motasem.jpg"
-          alt="Ms. Amal Hamdan"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Mr. Motasem Ali</div>
+
           <div class="ptp-team-role">Admin and Technical Assistant</div>
         </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/motasem-nabeel-ali/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:motasem@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
+        </div>
       </div>
+
       <div class="ptp-team-member">
         <img
-          class="ptp-team-photo"
-          src="public/files/2025/website-assets/governance-structure/shaymaa.jpg"
           alt="Ms. Amal Hamdan"
+          class="ptp-team-photo"
+          src="public/files/2025/website-assets/governance-structure/shosho.jpg"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Ms. Shaymaa Alrefai</div>
+
           <div class="ptp-team-role">Communications Coordinator</div>
         </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/shaymaa-alrefai-3a68ba200/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:shaymaa@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
+        </div>
       </div>
+
       <div class="ptp-team-member">
         <img
+          alt="Ms. Amal Hamdan"
           class="ptp-team-photo"
           src="public/files/2025/website-assets/governance-structure/nada.jpeg"
-          alt="Ms. Amal Hamdan"
         />
         <div class="ptp-team-info">
           <div class="ptp-team-name">Ms. Nada Sinan</div>
+
           <div class="ptp-team-role">Admin and Financial Assistant</div>
+        </div>
+
+        <div class="ptp-team-overlay">
+          <div class="ptp-social-icons">
+            <a
+              class="ptp-social-icon"
+              href="https://www.linkedin.com/in/nada-sinan/"
+              target="_blank"
+              ><img
+                alt="LinkedIn"
+                src="public/files/2025/website-assets/governance-structure/social.png"
+            /></a>
+            <a class="ptp-social-icon" href="mailto:nada@technopark.ps"
+              ><img
+                alt="Email"
+                src="public/files/2025/website-assets/governance-structure/email.png"
+            /></a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
   <!-- Advisory Board -->
+
   <div class="ptp-section">
     <h2 class="ptp-section-title">Advisory Board</h2>
+
     <p class="ptp-intro-text">
       Our Advisory Board consists of distinguished individuals with expertise in
       academia, government representation, and international relations. Their
-      insights and guidance play a pivotal role in shaping PTP's strategic
+      insights and guidance play a pivotal role in shaping PTP&#39;s strategic
       direction and fostering partnerships.
     </p>
+
     <ul class="ptp-members-list">
       <li>
         <img
+          alt="Dr. Hanna Nasir"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/hanna_0.jpg"
-          alt="Dr. Hanna Nasir"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Dr. Hanna Nasir</div>
+
           <div class="ptp-member-role">
             Ex-Chairperson of Birzeit University Board of Trustees
           </div>
@@ -676,12 +910,13 @@
       </li>
       <li>
         <img
+          alt="Dr. Majdi Khaldi"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/majid khaldi.jpg"
-          alt="Dr. Majdi Khaldi"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Dr. Majdi Khaldi</div>
+
           <div class="ptp-member-role">
             Representative of the office of the President of the State of
             Palestine
@@ -689,38 +924,48 @@
         </div>
       </li>
       <li>
-        <img
-          class="ptp-member-photo"
-          src="public/files/2025/website-assets/governance-structure/talal shahwan.jpg"
-          alt="The Indian Ambassador to the State of Palestine"
-        />
-        <div class="ptp-member-info">
+        <!-- No photo for the Indian Ambassador -->
+        <div
+          class="ptp-member-info"
+          style="
+            position: relative;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+          "
+        >
           <div class="ptp-member-name">
             The Indian Ambassador to the State of Palestine
           </div>
+
           <div class="ptp-member-role">International Relations Advisor</div>
         </div>
       </li>
     </ul>
   </div>
-
   <!-- Technical Advisory Committee -->
+
   <div class="ptp-section" style="background-color: #e9f1f7">
     <h2 class="ptp-section-title">Technical Advisory Committee</h2>
+
     <p class="ptp-intro-text">
       Our Technical Advisory Committee comprises professionals with diverse
       technical backgrounds and international experience. Their collective
-      knowledge guides PTP's technological direction and innovation strategies.
+      knowledge guides PTP&#39;s technological direction and innovation
+      strategies.
     </p>
+
     <ul class="ptp-members-list">
       <li>
         <img
+          alt="Mr. Mohammed Suwwan"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/mohammad.jpg"
-          alt="Mr. Mohammed Suwwan"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Mohammed Suwwan</div>
+
           <div class="ptp-member-role">
             Sales Specialist at Cisco Systems in Munich, Germany
           </div>
@@ -728,23 +973,25 @@
       </li>
       <li>
         <img
+          alt="Dr. Jad Najjar"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/Jad Najjar.png"
-          alt="Dr. Jad Najjar"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Dr. Jad Najjar</div>
+
           <div class="ptp-member-role">Co-Founder and CEO of Eummena</div>
         </div>
       </li>
       <li>
         <img
+          alt="Mr. Ray Milhem"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/ray.jpg"
-          alt="Mr. Ray Milhem"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Ray Milhem</div>
+
           <div class="ptp-member-role">
             Founder and CEO of MILHEM DTL (MDTL), LLC
           </div>
@@ -752,23 +999,25 @@
       </li>
       <li>
         <img
+          alt="Mr. Faris Alami"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/faris.jpg"
-          alt="Mr. Faris Alami"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Faris Alami</div>
+
           <div class="ptp-member-role">Founder and CEO of ISM</div>
         </div>
       </li>
       <li>
         <img
+          alt="Mr. Ramsey Kandah"
           class="ptp-member-photo"
           src="public/files/2025/website-assets/governance-structure/ramsey.jpg"
-          alt="Mr. Ramsey Kandah"
         />
         <div class="ptp-member-info">
           <div class="ptp-member-name">Mr. Ramsey Kandah</div>
+
           <div class="ptp-member-role">
             Founder and Managing Partner of Foothill Technology Solutions
           </div>
